@@ -132,8 +132,7 @@ $("favorite").onclick=()=>{persistList("resetFavorites",{profile,title:$("title"
 function renderFavorites(){$("favoriteList").innerHTML=list("resetFavorites").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No favorites yet.</div>'}
 function renderHistory(){$("historyList").innerHTML=list("resetHistory").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)} • ${new Date(x.at).toLocaleString()}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No history yet.</div>'}
 function renderShared(){let local=list("resetShared");$("sharedList").innerHTML=local.map(x=>`<div class="item"><b>${escapeHtml(x.icon||"❤️")} ${escapeHtml(x.title)}</b><small>${escapeHtml(x.from)} • ${new Date(x.at).toLocaleString()}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">Nothing shared yet.</div>'}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#039;"}[c]))}
-
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 DATA.needs.forEach(([icon,title,text])=>{let b=document.createElement("button");b.className="needBtn";b.innerHTML=`<b>${icon} ${title}</b><span>${text}</span>`;b.addEventListener("click",()=>sendShared({icon,title,text,from:profile,at:new Date().toISOString(),type:"need"}));$("needsGrid").appendChild(b)});
 $("pullUs").onclick=()=>{let x=pick(DATA.couples);sendShared({icon:"❤️",title:x[0],text:x[1],from:profile,at:new Date().toISOString(),type:"us"});reveal("Us",x[0],x[1])};
 $("clearShared").onclick=()=>{localStorage.removeItem("resetShared");renderShared()};
