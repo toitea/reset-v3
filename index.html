@@ -63,29 +63,370 @@ button.tapFlash{transform:scale(.965)!important;box-shadow:0 0 0 2px color-mix(i
 .memoryCard{cursor:pointer;transition:transform .18s ease,border-color .18s ease}.memoryCard:active{transform:scale(.98)}.memoryCard img{aspect-ratio:4/3;object-fit:cover;width:100%}.memoryModal{position:fixed;inset:0;z-index:50;background:rgba(4,6,10,.88);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:22px}.memoryModal.show{display:flex}.memoryModalBox{width:min(620px,100%);max-height:88vh;overflow:auto;background:#171b22;border:1px solid var(--line);border-radius:28px;padding:16px;box-shadow:0 24px 80px rgba(0,0,0,.55)}.memoryModalBox img{width:100%;max-height:55vh;object-fit:contain;border-radius:20px;background:#0b0d12}.memoryModalBox h3{font-size:26px;margin:14px 4px 6px}.memoryModalBox p,.memoryModalBox small{margin:4px;color:var(--muted)}
 .deckCard{transform-style:preserve-3d}.deckCard.v8flip{animation:v8flip .48s cubic-bezier(.2,.8,.2,1)}@keyframes v8flip{0%{transform:perspective(800px) rotateY(90deg) scale(.94);opacity:.3}100%{transform:perspective(800px) rotateY(0) scale(1);opacity:1}}
 .sendBurst{animation:sendBurst .55s ease}@keyframes sendBurst{45%{transform:scale(1.04);box-shadow:0 0 0 10px rgba(221,158,181,.08)}100%{transform:none}}
+
+
+/* =========================================================
+   V10 — SOFT LUXE VISUAL POLISH
+   Pure presentation pass: no Firebase/account behavior changed.
+   ========================================================= */
+
+:root{
+  --glass:rgba(24,28,35,.78);
+  --glass2:rgba(255,255,255,.045);
+  --hairline:rgba(255,255,255,.115);
+  --softPink:#e8b3c3;
+  --softGreen:#afd2b3;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 18% -5%,rgba(229,174,193,.18),transparent 30%),
+    radial-gradient(circle at 95% 20%,rgba(151,194,168,.10),transparent 25%),
+    linear-gradient(180deg,#10131a 0%,#0b0d12 54%,#090b0f 100%);
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  opacity:.16;
+  background-image:
+    radial-gradient(circle at 25% 20%,rgba(255,255,255,.16) 0 1px,transparent 1.25px),
+    radial-gradient(circle at 70% 65%,rgba(255,255,255,.09) 0 1px,transparent 1.2px);
+  background-size:33px 33px,41px 41px;
+}
+
+.app{padding:16px 18px 122px}
+.top{
+  position:relative;
+  padding:4px 2px 8px;
+}
+.brand{
+  font-size:20px;
+  letter-spacing:.22em;
+  text-shadow:0 1px 20px rgba(255,255,255,.05);
+}
+.brandDot{
+  width:10px;height:10px;
+  box-shadow:0 0 0 5px rgba(220,168,184,.06),0 0 26px var(--accent);
+}
+.chip{
+  background:rgba(19,23,29,.72);
+  border-color:var(--hairline);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.hero{
+  position:relative;overflow:hidden;
+  border:1px solid var(--hairline);
+  background:
+    radial-gradient(circle at 86% 18%,rgba(232,179,195,.23),transparent 25%),
+    radial-gradient(circle at 13% 92%,rgba(175,210,179,.12),transparent 27%),
+    linear-gradient(145deg,rgba(42,35,44,.93),rgba(20,24,30,.95));
+  box-shadow:0 24px 65px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.hero:after{
+  content:"RESET";
+  position:absolute;right:-8px;bottom:-18px;
+  font-size:72px;font-weight:1000;letter-spacing:.12em;
+  color:rgba(255,255,255,.025);
+  pointer-events:none;
+}
+.hero h1{letter-spacing:-.035em}
+.heroMini{gap:7px}
+.miniPill{
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(7,10,14,.28);
+  backdrop-filter:blur(8px);
+}
+
+.tabs{
+  top:0;
+  margin:14px -2px 0;
+  padding:8px 2px 11px;
+  gap:7px;
+  scroll-snap-type:x proximity;
+  mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%);
+  background:linear-gradient(180deg,rgba(10,12,17,.96) 68%,rgba(10,12,17,.78) 84%,transparent);
+  backdrop-filter:blur(15px);
+}
+.tabs button{
+  scroll-snap-align:start;
+  min-height:48px;
+  padding:11px 16px;
+  background:rgba(24,29,37,.72);
+  border-color:rgba(255,255,255,.105);
+  color:#b9bec8;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  transition:transform .16s ease,background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.tabs button:active{transform:scale(.96)}
+.tabs button.active{
+  background:linear-gradient(145deg,#efbdcc,#d99caf);
+  color:#21151a;
+  box-shadow:0 9px 26px rgba(220,168,184,.18),inset 0 1px 0 rgba(255,255,255,.36);
+}
+body[data-profile="Tone"] .tabs button.active{
+  background:linear-gradient(145deg,#efd696,#d8b966);
+  color:#211a0a;
+}
+
+.panel.active{animation:v10PanelIn .26s ease both}
+@keyframes v10PanelIn{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:none}
+}
+
+.sectionHead{margin:24px 4px 12px}
+.sectionHead h2{
+  font-size:24px;
+  letter-spacing:-.025em;
+}
+.sectionHead p{font-size:13px;line-height:1.4}
+
+.grid{gap:13px}
+.tile{
+  min-height:142px;
+  padding:20px;
+  border-radius:29px;
+  border-color:var(--hairline);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.02)),
+    rgba(22,27,34,.88);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 18px 35px rgba(0,0,0,.10);
+  transition:transform .16s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.tile:hover{border-color:rgba(232,179,195,.23)}
+.tile:active{transform:scale(.975)}
+.tile.featured{
+  background:
+    radial-gradient(circle at 82% 17%,rgba(232,179,195,.17),transparent 30%),
+    linear-gradient(145deg,rgba(54,46,57,.96),rgba(21,26,33,.95));
+}
+.tile .emoji{
+  display:grid;
+  place-items:center;
+  width:46px;height:46px;
+  margin-bottom:14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.07);
+  font-size:25px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.tile small{line-height:1.4;margin-top:7px}
+
+.moods{gap:9px;margin-top:17px}
+.moods button{
+  min-height:52px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#2b323d,#222832);
+  border-color:rgba(255,255,255,.11);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.card,.deckCard{
+  border-color:rgba(255,255,255,.13);
+  box-shadow:0 26px 72px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.04);
+}
+.card.toya,.deckCard.toya{
+  background:
+    radial-gradient(circle at 88% 8%,rgba(235,180,198,.18),transparent 28%),
+    linear-gradient(150deg,#332831,#1b1d24 70%);
+}
+.card h2,.deckCard h2{
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+.card p,.deckCard p{color:#eef0f2}
+.label{letter-spacing:.16em}
+
+.actions button,.mediaButtons button,.mediaButtons a,.addMedia button,.streamServices button,.vibeModes button{
+  min-height:46px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,.11);
+  background:linear-gradient(145deg,#2b323d,#222832);
+  color:#f7f7f8;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  transition:transform .14s ease,filter .14s ease,box-shadow .16s ease;
+}
+.actions button:active,.mediaButtons button:active,.mediaButtons a:active,.streamServices button:active,.vibeModes button:active{
+  transform:scale(.965);
+}
+.primary,.mediaButtons .accent{
+  background:linear-gradient(145deg,#efbdcc,#d99caf)!important;
+  color:#24151b!important;
+  border-color:transparent!important;
+  box-shadow:0 9px 24px rgba(220,168,184,.14)!important;
+}
+.gold{
+  background:linear-gradient(145deg,#ecd084,#d5b45e)!important;
+  color:#251e0d!important;
+  border-color:transparent!important;
+}
+
+.vibeHero{
+  padding:25px;
+  border-radius:31px;
+  background:
+    radial-gradient(circle at 86% 12%,rgba(232,179,195,.23),transparent 29%),
+    radial-gradient(circle at 10% 100%,rgba(175,210,179,.10),transparent 26%),
+    linear-gradient(145deg,#30262f,#171b22 70%);
+  box-shadow:0 22px 52px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.04);
+}
+.vibeHero h3{font-size:28px;letter-spacing:-.035em;text-wrap:balance}
+.vibeHero p{font-size:15px;line-height:1.5;color:#e6e8eb}
+.vibeModes{
+  gap:7px;
+  padding:3px 0 13px;
+  scroll-snap-type:x proximity;
+}
+.vibeModes button{
+  scroll-snap-align:start;
+  white-space:nowrap;
+  padding:10px 13px;
+  background:#1f252d;
+}
+.vibeModes button.on,.streamServices button.on{
+  background:linear-gradient(145deg,#efbdcc,#d99caf);
+  color:#24151b;
+  border-color:transparent;
+}
+
+.streamPicker{
+  margin:1px 0 17px;
+  padding:16px;
+  border-radius:24px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),
+    #151a21;
+  border-color:rgba(255,255,255,.10);
+}
+.streamPickerTop span{
+  padding:5px 9px;
+  border-radius:999px;
+  background:rgba(232,179,195,.10);
+  color:#efc5d1;
+}
+.streamServices button{background:#222934;color:#f3f4f5}
+
+.mediaGrid{gap:13px}
+.mediaCard{
+  min-height:190px;
+  border-radius:28px;
+  padding:20px;
+  border-color:rgba(255,255,255,.10);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),
+    #151a21;
+  box-shadow:0 18px 36px rgba(0,0,0,.11),inset 0 1px 0 rgba(255,255,255,.035);
+}
+.mediaCard:before{
+  width:145px;height:145px;
+  background:radial-gradient(circle,var(--accent),transparent 68%);
+  opacity:.08;
+}
+.mediaIcon{
+  display:grid;place-items:center;
+  width:48px;height:48px;
+  border-radius:17px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.07);
+}
+.mediaCard h3{font-size:19px;letter-spacing:-.02em}
+.mediaCard p{font-size:14px;line-height:1.48}
+.mediaServiceHint{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:9px;
+}
+
+.memoryHero{
+  border-radius:30px;
+  padding:22px;
+  background:
+    radial-gradient(circle at 90% 15%,rgba(232,179,195,.19),transparent 30%),
+    linear-gradient(145deg,#30262f,#171b22 68%);
+}
+.memoryQuote{font-size:24px;letter-spacing:-.025em}
+.memoryWall{gap:13px}
+.memoryCard{
+  border-radius:26px;
+  border-color:rgba(255,255,255,.10);
+  background:#151a21;
+  box-shadow:0 16px 34px rgba(0,0,0,.10);
+}
+.memoryCard img{aspect-ratio:1/1;transition:transform .28s ease}
+.memoryCard:hover img{transform:scale(1.018)}
+.memoryBody{padding:15px}
+
+.list>*,.dateBox,.addMedia,.setup,.accountCard{
+  border-color:rgba(255,255,255,.10)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.toast{
+  bottom:92px;
+  border-radius:18px;
+  padding:12px 16px;
+  background:rgba(247,247,248,.96);
+  backdrop-filter:blur(14px);
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+@media(max-width:620px){
+  .app{padding-left:14px;padding-right:14px}
+  .hero{border-radius:31px}
+  .grid{grid-template-columns:1fr}
+  .tile{min-height:126px}
+  .tile .emoji{margin-bottom:10px}
+  .mediaGrid{grid-template-columns:1fr}
+  .mediaCard{min-height:0}
+  .memoryWall{grid-template-columns:1fr 1fr}
+  .sectionHead h2{font-size:23px}
+}
+
+@media(max-width:430px){
+  .app{padding-left:12px;padding-right:12px}
+  .tabs{margin-left:-4px;margin-right:-4px}
+  .tabs button{min-height:46px;padding:10px 14px}
+  .hero{padding:22px}
+  .hero h1{font-size:31px}
+  .vibeHero{padding:21px}
+  .vibeHero h3{font-size:26px}
+  .memoryWall{gap:9px}
+  .memoryBody{padding:12px}
+  .actions{gap:8px}
+  .actions button{flex:1 1 auto}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
 </style>
 </head>
+<!-- RESET V10 Soft Luxe Polish -->
 <body data-profile="Toya">
 <div class="app">
   <div class="top"><div class="brand"><span class="brandDot"></span>RESET</div><button class="chip" id="who">Not connected</button></div>
-  <section class="hero"><div class="eyebrow">TOYA + TONE</div><h1 id="greeting">Your private reset space</h1><p id="heroText">Small actions, clear requests, and a little softness without turning every moment into a whole conversation.</p><div class="heroMini"><span class="miniPill">Realtime together</span><span class="miniPill">Private card pulls</span><span class="miniPill">Music + video</span><span class="miniPill">Memories + dates</span></div></section>
+  <section class="hero"><div class="eyebrow">TOYA + TONE · PRIVATE SPACE</div><h1 id="greeting">Your private reset space</h1><p id="heroText">Small actions, clear requests, and a little softness without turning every moment into a whole conversation.</p><div class="heroMini"><span class="miniPill">Realtime together</span><span class="miniPill">Private card pulls</span><span class="miniPill">Music + video</span><span class="miniPill">Memories + dates</span></div></section>
 
   <section class="setup" id="setup"><h2>Connect your phones</h2><p>Choose your profile and use the same private couple code on both phones.</p><div class="setupGrid"><select id="profileSelect"><option>Toya</option><option>Tone</option></select><input id="coupleCode" maxlength="18" placeholder="Private couple code"><button id="createPair">Create / Save code</button><button id="joinPair">Join code</button></div><div class="status" id="setupStatus">Checking cloud connection…</div></section>
 
   <nav class="tabs">
-    <button class="active" data-tab="today">Today</button>
-    <button data-tab="needs">I Need…</button>
-    <button data-tab="shared">Us <span class="badge" id="usBadge">0</span></button>
-    <button data-tab="media">Vibe</button>
-    <button data-tab="memories">Memories</button>
-    <button data-tab="decks">Decks</button>
-    <button data-tab="favorites">Favorites</button>
-    <button data-tab="history">History</button>
-    <button data-tab="settings">Settings</button>
+    <button class="active" data-tab="today">✦ Today</button>
+    <button data-tab="needs">💬 I Need</button>
+    <button data-tab="shared">♡ Us <span class="badge" id="usBadge">0</span></button>
+    <button data-tab="media">♪ Vibe</button>
+    <button data-tab="memories">▣ Memories</button>
+    <button data-tab="decks">◇ Decks</button>
+    <button data-tab="favorites">★ Favorites</button>
+    <button data-tab="history">↻ History</button>
+    <button data-tab="settings">⚙ Settings</button>
   </nav>
 
   <section class="panel active" id="today">
-    <div class="sectionHead"><div><h2>Pick what you need</h2><p>No overthinking required.</p></div></div>
+    <div class="sectionHead"><div><h2>Your reset, right now</h2><p>Pick one thing. Let the rest wait.</p></div></div>
     <div class="grid">
       <button class="tile featured" id="morning"><span class="emoji">☀️</span>Morning Pull<small>One message for the energy you need today.</small></button>
       <button class="tile" id="pull"><span class="emoji">🃏</span>My Cards<small>Choose your mood, then draw something useful.</small></button>
