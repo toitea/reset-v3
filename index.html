@@ -5,196 +5,175 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111318">
 <link rel="manifest" href="manifest.json">
-<title>RESET</title>
+<title>RESET — Toya + Tone</title>
 <style>
-:root{--bg:#0d0f13;--panel:#171b22;--panel2:#202631;--line:#313846;--text:#f7f7f8;--muted:#a8afb9;--mint:#a8cfac;--gold:#e7c77d;--rose:#dba6b4;--red:#f1a1a1}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#1b222b,#0d0f13 54%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
-.app{max-width:760px;margin:auto;padding:18px 16px 105px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:950;letter-spacing:.18em;font-size:22px}.chip{border:1px solid var(--line);background:#171b22;color:#fff;padding:9px 12px;border-radius:999px;font-weight:800}
-.hero{margin-top:16px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border-radius:28px;padding:22px}.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--mint);font-weight:950}.hero h1{font-size:30px;margin:8px 0}.hero p{color:var(--muted);line-height:1.45;margin:0}
-.setup{margin-top:14px;padding:18px;border-radius:22px;border:1px solid var(--line);background:var(--panel)}.setup.hidden{display:none}.setup h2{margin:0 0 8px}.setup p{color:var(--muted);line-height:1.45}.setupGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.setup input,.setup select{width:100%;font-size:16px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#11151a;color:#fff}.setup button{border:0;border-radius:14px;padding:12px 14px;background:var(--mint);color:#111611;font-weight:850}
-.tabs{display:flex;gap:8px;overflow:auto;margin-top:16px;padding-bottom:4px}.tabs button{white-space:nowrap;border:1px solid var(--line);background:#171b22;color:var(--muted);padding:10px 13px;border-radius:999px;font-weight:800}.tabs button.active{background:var(--mint);color:#111611;border-color:transparent}
-.panel{display:none;margin-top:16px}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.tile{min-height:116px;text-align:left;border:1px solid var(--line);background:linear-gradient(145deg,#1b2028,#14181e);color:#fff;border-radius:22px;padding:18px;font-size:16px;font-weight:850}.tile small{display:block;color:var(--muted);font-weight:500;margin-top:7px;line-height:1.3}
-.moods{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.moods button,.actions button,.needBtn,.secondary{border:0;border-radius:14px;background:#2a313c;color:#fff;padding:11px 14px;font-weight:800}
-.stage{display:none;margin-top:18px;perspective:1200px}.stage.show{display:block}.wrap.pop{animation:pop .48s cubic-bezier(.2,.8,.2,1)}
-.card{min-height:310px;padding:26px;border-radius:30px;border:1px solid rgba(255,255,255,.11);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),linear-gradient(160deg,#27303b,#171b22 65%);box-shadow:0 26px 55px rgba(0,0,0,.34);position:relative;overflow:hidden}
-.card.toya{background:linear-gradient(145deg,rgba(219,166,180,.10),rgba(255,255,255,.02)),linear-gradient(160deg,#2a2429,#181b21 65%)}.card.tone{background:linear-gradient(145deg,rgba(231,199,125,.08),rgba(255,255,255,.02)),linear-gradient(160deg,#272922,#171b22 65%)}
-.card.red{border-color:#713b3b}.label{color:var(--mint);font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.card.red .label{color:var(--red)}.card h2{font-size:31px;margin:14px 0 12px;line-height:1.07}.card p{font-size:17px;line-height:1.58;color:#e7eaed}.card:after{content:"RESET";position:absolute;right:22px;bottom:17px;font-size:11px;letter-spacing:.23em;color:rgba(255,255,255,.18);font-weight:900}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.primary{background:var(--mint)!important;color:#111611!important}.gold{background:var(--gold)!important;color:#211b0d!important}
-.needsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.needBtn{text-align:left;min-height:86px;background:var(--panel);border:1px solid var(--line)}.needBtn b{display:block;margin-bottom:4px}.status{margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--muted)}
-.list{display:grid;gap:10px}.item{border:1px solid var(--line);background:var(--panel);padding:14px;border-radius:18px}.item b{display:block;margin-bottom:4px}.item small{color:var(--muted)}
-.settingsGrid{display:grid;gap:10px}.setting{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid var(--line);background:var(--panel);padding:14px;border-radius:18px}.setting small{display:block;color:var(--muted);margin-top:3px}.setting button{border:0;border-radius:12px;padding:10px 12px;font-weight:800;background:#2a313c;color:#fff}
-.note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:16px}
-@keyframes pop{0%{opacity:0;transform:translateY(28px) rotateX(7deg) scale(.94)}70%{transform:translateY(-3px) scale(1.015)}100%{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.wrap.pop{animation:none}}@media(max-width:480px){.setupGrid,.grid,.needsGrid{grid-template-columns:1fr}.hero h1{font-size:26px}.card{min-height:285px;padding:22px}.card h2{font-size:27px}}
+:root{
+  --bg:#0b0d12;--panel:rgba(23,27,34,.84);--panel-solid:#171b22;--panel2:#202631;--line:rgba(255,255,255,.10);
+  --text:#f8f8fa;--muted:#aeb5c0;--accent:#dca8b8;--accent2:#a8cfac;--accentText:#201419;--gold:#e7c77d;
+  --danger:#f2a1a1;--success:#9fd7ac;--shadow:0 22px 60px rgba(0,0,0,.32)
+}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh;background:
+radial-gradient(circle at 10% 0%,rgba(220,168,184,.16),transparent 35%),radial-gradient(circle at 92% 12%,rgba(168,207,172,.12),transparent 32%),linear-gradient(180deg,#10141b 0%,#0b0d12 58%);background-attachment:fixed}
+body[data-profile="Tone"]{--accent:#e7c77d;--accent2:#9db1c4;--accentText:#211b0d;background:radial-gradient(circle at 8% 0%,rgba(231,199,125,.10),transparent 34%),radial-gradient(circle at 92% 14%,rgba(104,130,150,.14),transparent 30%),linear-gradient(180deg,#11151a 0%,#0b0d12 58%)}
+button,input,select{font:inherit}button{cursor:pointer}.app{max-width:780px;margin:auto;padding:18px 16px 110px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:.18em;font-size:22px}.brandDot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 24px var(--accent)}
+.chip{border:1px solid var(--line);background:rgba(20,24,30,.76);backdrop-filter:blur(14px);color:#fff;padding:9px 12px;border-radius:999px;font-weight:800}
+.hero{position:relative;overflow:hidden;margin-top:16px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));backdrop-filter:blur(18px);border-radius:30px;padding:24px;box-shadow:var(--shadow)}
+.hero:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-55px;top:-65px;background:radial-gradient(circle,var(--accent),transparent 67%);opacity:.18}.eyebrow{font-size:11px;letter-spacing:.17em;color:var(--accent2);font-weight:950}.hero h1{font-size:31px;margin:8px 0 7px;line-height:1.06}.hero p{color:var(--muted);line-height:1.48;margin:0;max-width:610px}.heroMini{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.miniPill{font-size:12px;border:1px solid var(--line);background:rgba(0,0,0,.15);padding:7px 10px;border-radius:999px;color:#dfe4e8}
+.setup{margin-top:14px;padding:18px;border-radius:24px;border:1px solid var(--line);background:var(--panel);backdrop-filter:blur(16px)}.setup h2{margin:0 0 7px}.setup p{color:var(--muted);line-height:1.45}.setupGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.setup input,.setup select{width:100%;font-size:16px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#11151a;color:#fff}.setup button{border:0;border-radius:14px;padding:12px 14px;background:var(--accent);color:var(--accentText);font-weight:900}
+.tabs{display:flex;gap:8px;overflow:auto;margin-top:16px;padding:3px 0 7px;scrollbar-width:none;position:sticky;top:0;z-index:9;background:linear-gradient(180deg,rgba(11,13,18,.97) 70%,transparent)}.tabs::-webkit-scrollbar{display:none}.tabs button{position:relative;white-space:nowrap;border:1px solid var(--line);background:rgba(23,27,34,.86);color:var(--muted);padding:10px 13px;border-radius:999px;font-weight:850}.tabs button.active{background:var(--accent);color:var(--accentText);border-color:transparent}.badge{display:none;min-width:18px;height:18px;padding:0 5px;align-items:center;justify-content:center;border-radius:999px;background:#f4b6b6;color:#2b0f0f;font-size:10px;font-weight:950;margin-left:4px}.badge.show{display:inline-flex}
+.panel{display:none;margin-top:14px}.panel.active{display:block}.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:18px 2px 10px}.sectionHead h2{font-size:18px;margin:0}.sectionHead p{font-size:12px;color:var(--muted);margin:3px 0 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{position:relative;overflow:hidden;min-height:128px;text-align:left;border:1px solid var(--line);background:linear-gradient(145deg,rgba(31,37,46,.96),rgba(19,23,29,.96));color:#fff;border-radius:24px;padding:18px;font-size:16px;font-weight:900;box-shadow:0 12px 32px rgba(0,0,0,.18);transition:transform .15s ease,border-color .15s ease}.tile:active{transform:scale(.975);border-color:var(--accent)}.tile .emoji{font-size:24px;display:block;margin-bottom:13px}.tile small{display:block;color:var(--muted);font-weight:520;margin-top:7px;line-height:1.32}.tile.featured{background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 18%,#222833),#171b22 70%)}
+.moods{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.moods button,.actions button,.secondary{border:1px solid var(--line);border-radius:14px;background:#2a313c;color:#fff;padding:11px 14px;font-weight:850}.moods button:active,.actions button:active{transform:scale(.97)}
+.stage{display:none;margin-top:18px;perspective:1200px}.stage.show{display:block}.wrap.pop{animation:pop .48s cubic-bezier(.2,.8,.2,1)}.card{min-height:300px;padding:27px;border-radius:31px;border:1px solid rgba(255,255,255,.11);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.02)),linear-gradient(160deg,#27303b,#171b22 65%);box-shadow:var(--shadow);position:relative;overflow:hidden}.card:before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;top:-70px;right:-55px;background:var(--accent);opacity:.10}.card.toya{background:linear-gradient(145deg,rgba(220,168,184,.16),rgba(255,255,255,.02)),linear-gradient(160deg,#2c242a,#181b21 65%)}.card.tone{background:linear-gradient(145deg,rgba(231,199,125,.12),rgba(255,255,255,.02)),linear-gradient(160deg,#292922,#171b22 65%)}.card.red{border-color:#713b3b}.label{color:var(--accent2);font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.card.red .label{color:var(--danger)}.card h2{font-size:31px;margin:14px 0 12px;line-height:1.07}.card p{font-size:17px;line-height:1.58;color:#e7eaed}.card:after{content:"RESET";position:absolute;right:22px;bottom:17px;font-size:11px;letter-spacing:.23em;color:rgba(255,255,255,.18);font-weight:900}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.primary{background:var(--accent)!important;color:var(--accentText)!important;border-color:transparent!important}.gold{background:var(--gold)!important;color:#211b0d!important;border-color:transparent!important}
+.needsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.needBtn{position:relative;text-align:left;min-height:94px;background:var(--panel-solid);border:1px solid var(--line);border-radius:20px;color:#fff;padding:14px;transition:all .18s ease}.needBtn b{display:block;margin-bottom:5px;font-size:15px}.needBtn span{color:var(--muted);font-size:13px;line-height:1.3}.needBtn:active{transform:scale(.975)}.needBtn.sending{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,#171b22);transform:scale(.98)}.needBtn.sent{border-color:var(--success);background:rgba(56,105,69,.33);box-shadow:0 0 0 1px rgba(159,215,172,.12) inset}.needBtn .sentMark{position:absolute;right:10px;top:10px;padding:4px 7px;border-radius:999px;background:var(--success);color:#0f2013;font-size:10px;font-weight:950;opacity:0;transform:scale(.8);transition:.16s}.needBtn.sent .sentMark{opacity:1;transform:scale(1)}
+.status{margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--muted)}.status.success{border-color:rgba(159,215,172,.38);color:#cfead5}.status.warn{border-color:rgba(231,199,125,.38);color:#ead9ae}
+.list{display:grid;gap:10px}.item{border:1px solid var(--line);background:var(--panel);padding:15px;border-radius:20px;backdrop-filter:blur(13px)}.item.incoming{border-color:color-mix(in srgb,var(--accent) 52%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 11%,#171b22),#171b22)}.item.unread{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 25%,transparent),0 14px 30px rgba(0,0,0,.16)}.item b{display:block;margin-bottom:4px}.item small{color:var(--muted)}.itemText{margin-top:8px;line-height:1.4}.metaLine{display:flex;align-items:center;justify-content:space-between;gap:10px}.youTag,.newTag{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:950}.youTag{background:rgba(255,255,255,.08);color:#dfe3e7}.newTag{background:var(--accent);color:var(--accentText)}.ackActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.ackActions button{border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#252c35;color:#fff;font-weight:850}.ackActions button.primary{background:var(--accent);color:var(--accentText)}
+.mediaGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mediaCard{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border-radius:24px;padding:18px;overflow:hidden;min-height:170px}.mediaCard:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-45px;top:-45px;background:var(--accent);opacity:.09}.mediaIcon{font-size:27px}.mediaCard h3{margin:12px 0 4px;font-size:17px}.mediaCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}.mediaButtons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.mediaButtons a,.mediaButtons button{display:inline-flex;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#252c35;color:#fff;font-weight:850;font-size:13px}.mediaButtons .accent{background:var(--accent);color:var(--accentText);border-color:transparent}.addMedia{margin-top:14px;border:1px solid var(--line);background:var(--panel);border-radius:22px;padding:16px}.addMedia h3{margin:0 0 8px}.formRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.addMedia input,.addMedia select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#11151a;color:#fff}.addMedia button{margin-top:8px;border:0;border-radius:13px;padding:11px 13px;background:var(--accent);color:var(--accentText);font-weight:900}.tiny{font-size:11px;color:var(--muted);line-height:1.45;margin-top:8px}
+.settingsGrid{display:grid;gap:10px}.setting{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid var(--line);background:var(--panel);padding:14px;border-radius:18px}.setting small{display:block;color:var(--muted);margin-top:3px}.setting button{border:0;border-radius:12px;padding:10px 12px;font-weight:850;background:#2a313c;color:#fff}.setting input{background:#11151a;color:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}.note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:18px}
+.toast{position:fixed;left:50%;bottom:85px;transform:translate(-50%,20px);z-index:40;background:#f4f5f6;color:#15171a;padding:11px 14px;border-radius:999px;font-weight:900;box-shadow:0 16px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes pop{0%{opacity:0;transform:translateY(28px) rotateX(7deg) scale(.94)}70%{transform:translateY(-3px) scale(1.015)}100%{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.wrap.pop{animation:none}}@media(max-width:520px){.setupGrid,.grid,.needsGrid,.mediaGrid,.formRow{grid-template-columns:1fr}.hero h1{font-size:27px}.card{min-height:285px;padding:22px}.card h2{font-size:27px}.tile{min-height:112px}.tabs{margin-left:-2px;margin-right:-2px}}
 </style>
 </head>
-<body>
+<body data-profile="Toya">
 <div class="app">
-<div class="top"><div class="brand">RESET</div><button class="chip" id="who">Not connected</button></div>
-<section class="hero"><div class="eyebrow">TOYA + TONE</div><h1>Your private reset space</h1><p>Daily pulls, shared cards, quiet requests, favorites, history, and connection without turning every need into a whole conversation.</p></section>
+  <div class="top"><div class="brand"><span class="brandDot"></span>RESET</div><button class="chip" id="who">Not connected</button></div>
+  <section class="hero"><div class="eyebrow">TOYA + TONE</div><h1 id="greeting">Your private reset space</h1><p id="heroText">Small actions, clear requests, and a little softness without turning every moment into a whole conversation.</p><div class="heroMini"><span class="miniPill">Realtime together</span><span class="miniPill">Private card pulls</span><span class="miniPill">Music + video</span></div></section>
 
-<section class="setup" id="setup">
-<h2>Connect your phones</h2>
-<p>Choose your profile. One person creates a couple code. The other joins using that same code. Firebase handles the shared data once you paste your project settings into <b>firebase-config.js</b>.</p>
-<div class="setupGrid">
-<select id="profileSelect"><option>Toya</option><option>Tone</option></select>
-<input id="coupleCode" maxlength="10" placeholder="Couple code, e.g. TONEYA26">
-<button id="createPair">Create / Save code</button>
-<button id="joinPair">Join code</button>
+  <section class="setup" id="setup"><h2>Connect your phones</h2><p>Choose your profile and use the same private couple code on both phones.</p><div class="setupGrid"><select id="profileSelect"><option>Toya</option><option>Tone</option></select><input id="coupleCode" maxlength="18" placeholder="Private couple code"><button id="createPair">Create / Save code</button><button id="joinPair">Join code</button></div><div class="status" id="setupStatus">Checking cloud connection…</div></section>
+
+  <nav class="tabs">
+    <button class="active" data-tab="today">Today</button>
+    <button data-tab="needs">I Need…</button>
+    <button data-tab="shared">Us <span class="badge" id="usBadge">0</span></button>
+    <button data-tab="media">Vibe</button>
+    <button data-tab="favorites">Favorites</button>
+    <button data-tab="history">History</button>
+    <button data-tab="settings">Settings</button>
+  </nav>
+
+  <section class="panel active" id="today">
+    <div class="sectionHead"><div><h2>Pick what you need</h2><p>No overthinking required.</p></div></div>
+    <div class="grid">
+      <button class="tile featured" id="morning"><span class="emoji">☀️</span>Morning Pull<small>One message for the energy you need today.</small></button>
+      <button class="tile" id="pull"><span class="emoji">🃏</span>My Cards<small>Choose your mood, then draw something useful.</small></button>
+      <button class="tile" id="cheat"><span class="emoji">🎟️</span>Cheat Day<small>Permission to ease up without giving up.</small></button>
+      <button class="tile" id="secret"><span class="emoji">🕵🏾</span>Secret Mission<small>A private assignment only you see.</small></button>
+    </div>
+    <div class="moods" id="moods"></div>
+    <div class="stage" id="stage" aria-live="polite"><div class="wrap" id="wrap"><div class="card" id="card"><div class="label" id="label"></div><h2 id="title"></h2><p id="text"></p></div></div><div class="actions"><button class="primary" id="done">I did it ✓</button><button id="again">Another</button><button class="gold" id="favorite">Favorite ★</button></div></div>
+  </section>
+
+  <section class="panel" id="needs">
+    <div class="sectionHead"><div><h2>Send a clear request</h2><p>Tap once. The card changes color so you KNOW it sent.</p></div></div>
+    <div class="needsGrid" id="needsGrid"></div><div class="status" id="needStatus">Choose what you need. Your partner will see it in Us.</div>
+  </section>
+
+  <section class="panel" id="shared">
+    <div class="sectionHead"><div><h2>Us</h2><p>Requests, acknowledgements, and shared cards.</p></div></div>
+    <div class="actions"><button class="primary" id="pullUs">Pull an Us card</button><button id="markAllSeen">Mark all seen</button></div>
+    <div class="list" id="sharedList" style="margin-top:12px"></div>
+  </section>
+
+  <section class="panel" id="media">
+    <div class="sectionHead"><div><h2>Vibe together</h2><p>Music, videos, laughs, and low-pressure connection.</p></div></div>
+    <div class="mediaGrid" id="mediaGrid"></div>
+    <div class="addMedia"><h3>➕ Add your own</h3><div class="formRow"><select id="mediaType"><option value="song">Song</option><option value="video">Video</option></select><input id="mediaTitle" placeholder="Title"></div><input id="mediaUrl" placeholder="Paste YouTube, Spotify, TikTok, etc. link" style="margin-top:8px"><button id="saveMedia">Save to this phone</button><div class="tiny">RESET opens media from the original service; it does not copy or host copyrighted songs/videos.</div></div>
+  </section>
+
+  <section class="panel" id="favorites"><div class="sectionHead"><div><h2>Favorites</h2><p>The cards worth keeping.</p></div></div><div class="list" id="favoriteList"></div></section>
+  <section class="panel" id="history"><div class="sectionHead"><div><h2>History</h2><p>Your recent pulls.</p></div></div><div class="list" id="historyList"></div></section>
+
+  <section class="panel" id="settings">
+    <div class="sectionHead"><div><h2>Settings</h2><p>Make RESET feel right on your phone.</p></div></div>
+    <div class="settingsGrid">
+      <div class="setting"><span><b>Sound</b><small>Different sounds for sending, receiving, and cards.</small></span><button id="soundToggle">On</button></div>
+      <div class="setting"><span><b>Vibration</b><small>Haptic feedback when you tap/send.</small></span><button id="vibeToggle">On</button></div>
+      <div class="setting"><span><b>Browser notifications</b><small>Enable and send a test alert.</small></span><button id="notifyTest">Enable</button></div>
+      <div class="setting"><span><b>Morning reminder</b><small>Preferred time; true closed-app alerts come later with push.</small></span><input id="morningTime" type="time" value="08:00"></div>
+      <div class="setting"><span><b>Evening Us reminder</b><small>Preferred time for a shared prompt.</small></span><input id="eveningTime" type="time" value="19:30"></div>
+      <div class="setting"><span><b>Cloud status</b><small id="cloudStatus">Checking…</small></span><button id="retryCloud">Retry</button></div>
+    </div>
+  </section>
+
+  <div class="note">RESET is a self-support tool, not therapy or substance-use treatment. If either of you is in immediate danger or cannot stay safe, use appropriate human/medical support rather than relying on the app.</div>
 </div>
-<div class="status" id="setupStatus">Local mode works immediately. Cloud sync activates after Firebase setup.</div>
-</section>
-
-<nav class="tabs">
-<button class="active" data-tab="today">Today</button>
-<button data-tab="needs">I Need…</button>
-<button data-tab="shared">Us</button>
-<button data-tab="favorites">Favorites</button>
-<button data-tab="history">History</button>
-<button data-tab="settings">Settings</button>
-</nav>
-
-<section class="panel active" id="today">
-<div class="grid">
-<button class="tile" id="morning">☀️ Morning Pull<small>Start with one message made for you.</small></button>
-<button class="tile" id="pull">🃏 Pull a Card<small>Choose your mood, then draw.</small></button>
-<button class="tile" id="cheat">🎟️ Cheat Day<small>Permission to ease up without giving up.</small></button>
-<button class="tile" id="secret">🕵🏾 Secret Mission<small>Private assignment. Your partner doesn't see it.</small></button>
-</div>
-<div class="moods" id="moods"></div>
-<div class="stage" id="stage" aria-live="polite"><div class="wrap" id="wrap"><div class="card" id="card"><div class="label" id="label"></div><h2 id="title"></h2><p id="text"></p></div></div><div class="actions"><button class="primary" id="done">I did it ✓</button><button id="again">Another</button><button class="gold" id="favorite">Favorite ★</button></div></div>
-</section>
-
-<section class="panel" id="needs"><div class="needsGrid" id="needsGrid"></div><div class="status" id="needStatus">Choose one. If cloud sync is active, your partner will see it in the Us feed.</div></section>
-
-<section class="panel" id="shared">
-<div class="actions"><button class="primary" id="pullUs">Pull an Us card</button><button id="clearShared">Clear local feed</button></div>
-<div class="list" id="sharedList" style="margin-top:12px"></div>
-</section>
-
-<section class="panel" id="favorites"><div class="list" id="favoriteList"></div></section>
-<section class="panel" id="history"><div class="list" id="historyList"></div></section>
-
-<section class="panel" id="settings">
-<div class="settingsGrid">
-<div class="setting"><span><b>Sound</b><small>Soft chime when cards appear.</small></span><button id="soundToggle">On</button></div>
-<div class="setting"><span><b>Vibration</b><small>Haptic tap on supported phones.</small></span><button id="vibeToggle">On</button></div>
-<div class="setting"><span><b>Browser notifications</b><small>Enable and send a test alert.</small></span><button id="notifyTest">Enable</button></div>
-<div class="setting"><span><b>Morning reminder</b><small>Choose a preferred time; true closed-app scheduling uses FCM/backend.</small></span><input id="morningTime" type="time" value="08:00"></div>
-<div class="setting"><span><b>Evening Us reminder</b><small>Preferred time for a shared card prompt.</small></span><input id="eveningTime" type="time" value="19:30"></div>
-<div class="setting"><span><b>Cloud status</b><small id="cloudStatus">Local mode only until Firebase config is added.</small></span><button id="retryCloud">Retry</button></div>
-</div>
-</section>
-
-<div class="note">RESET is a self-support tool, not therapy or substance-use treatment. If Tone is at risk of overdose, severe withdrawal, or cannot stay safe, use medical/professional support rather than relying on the app.</div>
-</div>
+<div class="toast" id="toast">Sent ✓</div>
 
 <script src="data.js"></script>
 <script type="module">
-import { firebaseConfig, vapidKey } from "./firebase-config.js";
+import { firebaseConfig } from "./firebase-config.js";
 
 const $=id=>document.getElementById(id), pick=a=>a[Math.floor(Math.random()*a.length)];
 let profile=localStorage.getItem("resetProfile")||"Toya";
 let pairCode=localStorage.getItem("resetPairCode")||"";
 let lastAction="morning",lastMood=null;
 let soundOn=localStorage.getItem("resetSound")!=="off",vibeOn=localStorage.getItem("resetVibe")!=="off";
-let cloud={ready:false,db:null,auth:null,user:null,mods:null,unsub:null};
+let cloud={ready:false,db:null,auth:null,user:null,mods:null,unsub:null,initialSnapshot:true};
+let audioCtx=null;
 
-function persistList(key,item,max=40){let a=JSON.parse(localStorage.getItem(key)||"[]");a.unshift(item);localStorage.setItem(key,JSON.stringify(a.slice(0,max)));return a}
-function list(key){return JSON.parse(localStorage.getItem(key)||"[]")}
-function chime(){if(!soundOn)return;try{const A=window.AudioContext||window.webkitAudioContext,c=new A(),o=c.createOscillator(),g=c.createGain();o.frequency.setValueAtTime(560,c.currentTime);o.frequency.exponentialRampToValueAtTime(760,c.currentTime+.18);g.gain.setValueAtTime(.0001,c.currentTime);g.gain.exponentialRampToValueAtTime(.08,c.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+.34);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.35)}catch(e){}}
-function haptic(){if(vibeOn&&navigator.vibrate)navigator.vibrate(35)}
-function refreshWho(){$("who").textContent=pairCode?profile+" • "+pairCode:profile+" • local";$("setupStatus").textContent=cloud.ready?"Cloud sync connected ✓":"Local mode works immediately. Cloud sync activates after Firebase setup."}
-function switchTab(id){document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===id));if(id==="favorites")renderFavorites();if(id==="history")renderHistory();if(id==="shared")renderShared()}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function persistList(key,item,max=60){let a=JSON.parse(localStorage.getItem(key)||"[]");a.unshift(item);localStorage.setItem(key,JSON.stringify(a.slice(0,max)));return a}
+function list(key){try{return JSON.parse(localStorage.getItem(key)||"[]")}catch{return []}}
+function seenSet(){return new Set(list("resetSeenIds"))}
+function saveSeen(set){localStorage.setItem("resetSeenIds",JSON.stringify([...set].slice(-200)))}
+function toast(msg){let t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove("show"),1500)}
+function haptic(pattern=35){if(vibeOn&&navigator.vibrate)navigator.vibrate(pattern)}
+function ensureAudio(){try{if(!audioCtx){const A=window.AudioContext||window.webkitAudioContext;audioCtx=A?new A():null}if(audioCtx&&audioCtx.state==="suspended")audioCtx.resume()}catch{}}
+document.addEventListener("pointerdown",ensureAudio,{once:true});
+function tone(freq,duration=.16,delay=0,gain=.055){if(!soundOn)return;try{ensureAudio();if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+delay;o.type="sine";o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(gain,t+.018);g.gain.exponentialRampToValueAtTime(.0001,t+duration);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+duration+.02)}catch{}}
+function sound(kind="card"){if(kind==="send"){tone(640,.12);tone(820,.14,.09)}else if(kind==="receive"){tone(760,.18);tone(980,.24,.12)}else if(kind==="favorite"){tone(660,.12);tone(880,.16,.10);tone(1100,.18,.20)}else{tone(520,.14);tone(690,.18,.10)}}
+function updateTheme(){document.body.dataset.profile=profile;let hr=new Date().getHours(),day=hr<12?"Good morning":hr<18?"Good afternoon":"Good evening";$("greeting").textContent=`${day}, ${profile}`;$("heroText").textContent=profile==="Toya"?"Your space to choose yourself, ask clearly, and keep the whole day from becoming about one hard moment.":"Keep it simple: one move, one honest request, one better choice at a time."}
+function refreshWho(){$("who").textContent=pairCode?profile+" • connected":profile+" • local";$("setupStatus").textContent=cloud.ready?(pairCode?"Cloud sync connected ✓ Both phones can use this room.":"Cloud connected ✓ Save your couple code."):"Local mode is ready. Cloud is still connecting.";updateTheme()}
+function switchTab(id){document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===id));if(id==="favorites")renderFavorites();if(id==="history")renderHistory();if(id==="shared"){markVisibleSeen();renderShared()}if(id==="media")renderMedia()}
 document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
 
-function reveal(label,title,text,red=false){
- $("label").textContent=label;$("title").textContent=title;$("text").textContent=text;
- $("card").className="card "+profile.toLowerCase()+(red?" red":"");
- $("stage").classList.add("show");$("wrap").classList.remove("pop");void $("wrap").offsetWidth;$("wrap").classList.add("pop");
- chime();haptic();persistList("resetHistory",{profile,label,title,text,at:new Date().toISOString()});$("stage").scrollIntoView({behavior:"smooth",block:"center"});
-}
+function reveal(label,title,text,red=false){$("label").textContent=label;$("title").textContent=title;$("text").textContent=text;$("card").className="card "+profile.toLowerCase()+(red?" red":"");$("stage").classList.add("show");$("wrap").classList.remove("pop");void $("wrap").offsetWidth;$("wrap").classList.add("pop");sound("card");haptic(32);persistList("resetHistory",{profile,label,title,text,at:new Date().toISOString()});$("stage").scrollIntoView({behavior:"smooth",block:"center"})}
 function morning(){lastAction="morning";reveal("Morning Pull","Today's energy",pick(DATA.morning[profile]))}
-function showMoods(){
- const options=profile==="Toya"?[["good","😌 Good"],["meh","😐 Meh"],["sad","😢 Sad"],["angry","😡 Pissed"],["anxious","😰 Anxious"],["overwhelmed","🫠 Overwhelmed"]]:[["good","👍 Good"],["irritated","😤 Irritated"],["drained","🪫 Drained"],["craving","⚠️ Craving"],["dontknow","🤷🏾 Don't know"]];
- $("moods").innerHTML="";options.forEach(([k,l])=>{let b=document.createElement("button");b.textContent=l;b.addEventListener("click",()=>mood(k));$("moods").appendChild(b)});
-}
+function showMoods(){const options=profile==="Toya"?[["good","😌 Good"],["meh","😐 Meh"],["sad","😢 Sad"],["angry","😡 Pissed"],["anxious","😰 Anxious"],["overwhelmed","🫠 Overwhelmed"]]:[["good","👍 Good"],["irritated","😤 Irritated"],["drained","🪫 Drained"],["craving","⚠️ Craving"],["dontknow","🤷🏾 Don't know"]];$("moods").innerHTML="";options.forEach(([k,l])=>{let b=document.createElement("button");b.textContent=l;b.addEventListener("click",()=>mood(k));$("moods").appendChild(b)})}
 function mood(m){lastAction="mood";lastMood=m;let x=pick(DATA.cards[profile][m]);reveal("Card Pull",x[0],x[1],profile==="Tone"&&m==="craving")}
 function cheat(){lastAction="cheat";let arr=profile==="Toya"?["Bare minimum after work. Food, shower, rest. Survival counts.","Buy yourself a little treat with zero explanation.","No productivity tonight. Be a person, not a project."]:["Two guilt-free hours of games, TV, music, sleep, or absolutely nothing.","Take some space without ghosting anybody. Say when you'll reconnect.","Skip one nonessential task. Handle one important thing instead."];reveal("Cheat Day","Use the pass",pick(arr))}
 function secret(){lastAction="secret";let arr=profile==="Toya"?[["Don't chase it","For three hours, don't ask whether something is wrong. Let silence be silence unless something actually needs addressing."],["Softness for you","Do one affectionate thing for yourself before asking Tone for affection."],["Quiet confidence","Do one thing today that reminds you who you are outside this relationship."]]:[["Affection mission","Give Toya affection today without her asking. Don't announce the assignment."],["Handle it quietly","Take care of one small thing that makes her day easier. No speech required."],["Say one real thing","Tell Toya one positive thing you genuinely think about her. Keep it simple."]];let x=pick(arr);reveal("Secret Mission",x[0],x[1])}
 function reroll(){if(lastAction==="morning")morning();else if(lastAction==="mood")mood(lastMood);else if(lastAction==="cheat")cheat();else secret()}
-
 $("morning").onclick=morning;$("pull").onclick=showMoods;$("cheat").onclick=cheat;$("secret").onclick=secret;$("again").onclick=reroll;
-$("done").onclick=()=>{persistList("resetWins",{profile,title:$("title").textContent,at:new Date().toISOString()});reveal("Win Saved","That counts.","You moved the day forward. You do not have to turn it into a whole transformation.")};
-$("favorite").onclick=()=>{persistList("resetFavorites",{profile,title:$("title").textContent,text:$("text").textContent,at:new Date().toISOString()},50);renderFavorites()};
+$("done").onclick=()=>{persistList("resetWins",{profile,title:$("title").textContent,at:new Date().toISOString()});toast("Win saved ✓");sound("send");haptic([25,35,25])};
+$("favorite").onclick=()=>{persistList("resetFavorites",{profile,title:$("title").textContent,text:$("text").textContent,at:new Date().toISOString()},50);sound("favorite");haptic(25);toast("Favorited ★");renderFavorites()};
 
-function renderFavorites(){$("favoriteList").innerHTML=list("resetFavorites").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No favorites yet.</div>'}
-function renderHistory(){$("historyList").innerHTML=list("resetHistory").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)} • ${new Date(x.at).toLocaleString()}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No history yet.</div>'}
-function renderShared(){let local=list("resetShared");$("sharedList").innerHTML=local.map(x=>`<div class="item"><b>${escapeHtml(x.icon||"❤️")} ${escapeHtml(x.title)}</b><small>${escapeHtml(x.from)} • ${new Date(x.at).toLocaleString()}</small><div>${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">Nothing shared yet.</div>'}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
-DATA.needs.forEach(([icon,title,text])=>{let b=document.createElement("button");b.className="needBtn";b.innerHTML=`<b>${icon} ${title}</b><span>${text}</span>`;b.addEventListener("click",()=>sendShared({icon,title,text,from:profile,at:new Date().toISOString(),type:"need"}));$("needsGrid").appendChild(b)});
-$("pullUs").onclick=()=>{let x=pick(DATA.couples);sendShared({icon:"❤️",title:x[0],text:x[1],from:profile,at:new Date().toISOString(),type:"us"});reveal("Us",x[0],x[1])};
-$("clearShared").onclick=()=>{localStorage.removeItem("resetShared");renderShared()};
+function renderFavorites(){$("favoriteList").innerHTML=list("resetFavorites").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)}</small><div class="itemText">${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No favorites yet.</div>'}
+function renderHistory(){$("historyList").innerHTML=list("resetHistory").map(x=>`<div class="item"><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.profile)} • ${new Date(x.at).toLocaleString()}</small><div class="itemText">${escapeHtml(x.text)}</div></div>`).join("")||'<div class="status">No history yet.</div>'}
 
-async function sendShared(item){
- persistList("resetShared",item,60);renderShared();$("needStatus").textContent="Sent locally ✓";
- if(cloud.ready && pairCode){
-  try{
-   const {collection,addDoc,serverTimestamp}=cloud.mods;
-   await addDoc(collection(cloud.db,"pairs",pairCode,"feed"),{...item,serverAt:serverTimestamp()});
-   $("needStatus").textContent="Sent to your shared feed ✓";
-  }catch(e){$("needStatus").textContent="Saved locally; cloud send failed."}
- }
-}
+function incomingUnreadCount(){let seen=seenSet();return list("resetShared").filter(x=>x._id&&x.from!==profile&&!seen.has(x._id)).length}
+function updateBadge(){let n=incomingUnreadCount();$("usBadge").textContent=n;$("usBadge").classList.toggle("show",n>0)}
+function renderShared(){let seen=seenSet(),local=list("resetShared");$("sharedList").innerHTML=local.map(x=>{let incoming=x.from!==profile,unread=incoming&&x._id&&!seen.has(x._id),acked=Array.isArray(x.ackBy)&&x.ackBy.includes(profile),partnerAck=Array.isArray(x.ackBy)&&x.ackBy.some(n=>n!==profile);let status=x.from===profile?(partnerAck?"Acknowledged ✓":"Delivered ✓"):(acked?"You acknowledged this":"Needs your attention");let actions=incoming&&x.type==="need"&&!acked&&x._id?`<div class="ackActions"><button class="primary" data-ack="${escapeHtml(x._id)}">❤️ I got you</button><button data-seen="${escapeHtml(x._id)}">Seen</button></div>`:"";return `<div class="item ${incoming?"incoming":""} ${unread?"unread":""}"><div class="metaLine"><div><b>${escapeHtml(x.icon||"❤️")} ${escapeHtml(x.title)}</b><small>${x.from===profile?"You":escapeHtml(x.from)} • ${new Date(x.at||Date.now()).toLocaleString()}</small></div>${unread?'<span class="newTag">NEW</span>':'<span class="youTag">'+escapeHtml(status)+'</span>'}</div><div class="itemText">${escapeHtml(x.text)}</div>${x.url?`<div class="mediaButtons"><a class="accent" href="${escapeHtml(x.url)}" target="_blank" rel="noopener">Open ↗</a></div>`:""}${actions}</div>`}).join("")||'<div class="status">Nothing shared yet. Send an “I Need…” request or pull an Us card.</div>';
+ document.querySelectorAll("[data-ack]").forEach(b=>b.onclick=()=>ackItem(b.dataset.ack,true));document.querySelectorAll("[data-seen]").forEach(b=>b.onclick=()=>ackItem(b.dataset.seen,false));updateBadge()}
+function markVisibleSeen(){let s=seenSet();list("resetShared").filter(x=>x._id&&x.from!==profile).forEach(x=>s.add(x._id));saveSeen(s);updateBadge()}
+async function ackItem(id,heart){let s=seenSet();s.add(id);saveSeen(s);haptic([30,35,30]);sound("send");toast(heart?"Acknowledged ❤️":"Marked seen ✓");if(cloud.ready&&id){try{const {doc,updateDoc,arrayUnion}=cloud.mods;await updateDoc(doc(cloud.db,"pairs",pairCode,"feed",id),{ackBy:arrayUnion(profile)})}catch(e){console.warn("Ack failed",e)}}renderShared()}
+$("markAllSeen").onclick=()=>{markVisibleSeen();renderShared();toast("All caught up ✓")};
 
-$("createPair").onclick=$("joinPair").onclick=async()=>{
- profile=$("profileSelect").value;pairCode=$("coupleCode").value.trim().toUpperCase()||Math.random().toString(36).slice(2,8).toUpperCase();
- localStorage.setItem("resetProfile",profile);localStorage.setItem("resetPairCode",pairCode);refreshWho();showMoods();await startPairListener();
-};
+DATA.needs.forEach(([icon,title,text])=>{let b=document.createElement("button");b.className="needBtn";b.innerHTML=`<span class="sentMark">✓ SENT</span><b>${icon} ${title}</b><span>${text}</span>`;b.addEventListener("click",async()=>{if(b.classList.contains("sending"))return;b.classList.remove("sent");b.classList.add("sending");haptic(20);await sendShared({icon,title,text,from:profile,at:new Date().toISOString(),type:"need"});b.classList.remove("sending");b.classList.add("sent");sound("send");haptic([25,35,25]);setTimeout(()=>b.classList.remove("sent"),2200)});$("needsGrid").appendChild(b)});
+$("pullUs").onclick=async()=>{let x=pick(DATA.couples);await sendShared({icon:"❤️",title:x[0],text:x[1],from:profile,at:new Date().toISOString(),type:"us"});reveal("Us",x[0],x[1])};
+async function sendShared(item){let localItem={...item,_local:true};persistList("resetShared",localItem,80);renderShared();$("needStatus").className="status";$("needStatus").textContent="Saved locally…";if(cloud.ready&&pairCode){try{const {collection,addDoc,serverTimestamp}=cloud.mods;await addDoc(collection(cloud.db,"pairs",pairCode,"feed"),{...item,ackBy:[],serverAt:serverTimestamp()});$("needStatus").className="status success";$("needStatus").textContent="✓ Sent to "+(profile==="Toya"?"Tone":"Toya");toast("Sent ✓");return true}catch(e){console.error("Cloud send failed",e);$("needStatus").className="status warn";$("needStatus").textContent="Saved on this phone, but cloud send failed.";return false}}$("needStatus").className="status warn";$("needStatus").textContent="Saved on this phone only — cloud is not connected.";return false}
+
+const starterMedia=[
+ {type:"song",icon:"🎵",title:"Best Part — Daniel Caesar ft. H.E.R.",text:"Soft R&B for a low-pressure moment together.",url:"https://www.youtube.com/results?search_query=Daniel+Caesar+HER+Best+Part"},
+ {type:"song",icon:"🎶",title:"Spend My Life With You — Eric Benét & Tamia",text:"A grown-love classic for the soundtrack section.",url:"https://www.youtube.com/results?search_query=Eric+Benet+Tamia+Spend+My+Life+With+You"},
+ {type:"video",icon:"📺",title:"Watch Together: {THE AND} Couples",text:"Pick a couples conversation video and answer along — no courtroom energy.",url:"https://www.youtube.com/results?search_query=The+Skin+Deep+THE+AND+couples"},
+ {type:"video",icon:"😂",title:"Laugh Together",text:"Open a try-not-to-laugh couples video when y’all need something light.",url:"https://www.youtube.com/results?search_query=couples+try+not+to+laugh+challenge"}
+];
+function customMedia(){return list("resetCustomMedia")}
+function renderMedia(){let items=[...starterMedia,...customMedia()];$("mediaGrid").innerHTML=items.map((m,i)=>`<div class="mediaCard"><div class="mediaIcon">${escapeHtml(m.icon|| (m.type==="song"?"🎵":"📺"))}</div><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.text||"Saved by you.")}</p><div class="mediaButtons"><a class="accent" href="${escapeHtml(m.url)}" target="_blank" rel="noopener">${m.type==="song"?"Play / Search":"Watch"} ↗</a><button data-sharemedia="${i}">Share to Us</button></div></div>`).join("");document.querySelectorAll("[data-sharemedia]").forEach(b=>b.onclick=async()=>{let m=items[Number(b.dataset.sharemedia)];await sendShared({icon:m.type==="song"?"🎵":"📺",title:m.title,text:"Shared something for us to "+(m.type==="song"?"listen to":"watch")+".",url:m.url,from:profile,at:new Date().toISOString(),type:"media"});sound("send")})}
+$("saveMedia").onclick=()=>{let type=$("mediaType").value,title=$("mediaTitle").value.trim(),url=$("mediaUrl").value.trim();if(!title||!/^https?:\/\//i.test(url)){toast("Add a title + full link");return}persistList("resetCustomMedia",{type,icon:type==="song"?"🎵":"📺",title,url,text:"Saved by "+profile+"."},30);$("mediaTitle").value="";$("mediaUrl").value="";renderMedia();toast("Saved ✓")};
+
+$("createPair").onclick=$("joinPair").onclick=async()=>{profile=$("profileSelect").value;pairCode=$("coupleCode").value.trim().toUpperCase().replace(/[^A-Z0-9_-]/g,"")||Math.random().toString(36).slice(2,9).toUpperCase();localStorage.setItem("resetProfile",profile);localStorage.setItem("resetPairCode",pairCode);refreshWho();showMoods();cloud.initialSnapshot=true;await startPairListener()};
 $("profileSelect").value=profile;$("coupleCode").value=pairCode;
+$("soundToggle").onclick=()=>{soundOn=!soundOn;localStorage.setItem("resetSound",soundOn?"on":"off");$("soundToggle").textContent=soundOn?"On":"Off";if(soundOn)sound("send")};
+$("vibeToggle").onclick=()=>{vibeOn=!vibeOn;localStorage.setItem("resetVibe",vibeOn?"on":"off");$("vibeToggle").textContent=vibeOn?"On":"Off";if(vibeOn)haptic(35)};
+$("morningTime").value=localStorage.getItem("resetMorningTime")||"08:00";$("eveningTime").value=localStorage.getItem("resetEveningTime")||"19:30";$("morningTime").onchange=e=>localStorage.setItem("resetMorningTime",e.target.value);$("eveningTime").onchange=e=>localStorage.setItem("resetEveningTime",e.target.value);
+$("notifyTest").onclick=async()=>{if(!("Notification" in window)){alert("Notifications are not supported in this browser.");return}let p=Notification.permission;if(p!=="granted")p=await Notification.requestPermission();if(p==="granted"){new Notification("RESET",{body:profile==="Toya"?"Toya, RESET is ready when you need it.":"Tone, one move for today.",icon:"icon.svg"});$("notifyTest").textContent="Enabled ✓"}else $("notifyTest").textContent="Blocked"};
 
-$("soundToggle").onclick=()=>{soundOn=!soundOn;localStorage.setItem("resetSound",soundOn?"on":"off");$("soundToggle").textContent=soundOn?"On":"Off";if(soundOn)chime()};
-$("vibeToggle").onclick=()=>{vibeOn=!vibeOn;localStorage.setItem("resetVibe",vibeOn?"on":"off");$("vibeToggle").textContent=vibeOn?"On":"Off";if(vibeOn)haptic()};
-$("morningTime").value=localStorage.getItem("resetMorningTime")||"08:00";$("eveningTime").value=localStorage.getItem("resetEveningTime")||"19:30";
-$("morningTime").onchange=e=>localStorage.setItem("resetMorningTime",e.target.value);$("eveningTime").onchange=e=>localStorage.setItem("resetEveningTime",e.target.value);
-
-$("notifyTest").onclick=async()=>{
- if(!("Notification" in window)){alert("Notifications are not supported in this browser.");return}
- let p=Notification.permission;if(p!=="granted")p=await Notification.requestPermission();
- if(p==="granted"){new Notification("RESET",{body:profile==="Toya"?"Toya, your morning pull is ready.":"Tone, one move for today.",icon:"icon.svg"});$("notifyTest").textContent="Enabled ✓"}else $("notifyTest").textContent="Blocked";
-};
-
-async function initCloud(){
- const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));
- if(placeholder){$("cloudStatus").textContent="Firebase config not added yet.";return}
- try{
-  const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");
-  const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");
-  const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");
-  const app=appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);
-  let cred=await authMod.signInAnonymously(auth);
-  cloud={ready:true,db,auth,user:cred.user,mods:fsMod,unsub:null};
-  $("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();await startPairListener();
- }catch(e){$("cloudStatus").textContent="Firebase connection failed. Check config and console setup."}
-}
-async function startPairListener(){
- if(!cloud.ready||!pairCode)return;
- if(cloud.unsub)cloud.unsub();
- const {collection,query,orderBy,limit,onSnapshot}=cloud.mods;
- try{
-  const q=query(collection(cloud.db,"pairs",pairCode,"feed"),orderBy("serverAt","desc"),limit(30));
-  cloud.unsub=onSnapshot(q,snap=>{
-   const items=[];snap.forEach(d=>items.push(d.data()));
-   if(items.length){localStorage.setItem("resetShared",JSON.stringify(items));renderShared()}
-  });
- }catch(e){}
-}
+async function initCloud(){const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));if(placeholder){$("cloudStatus").textContent="Firebase config is still a placeholder.";refreshWho();return}try{const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");const app=appMod.getApps().length?appMod.getApp():appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);let cred=auth.currentUser?{user:auth.currentUser}:await authMod.signInAnonymously(auth);cloud={ready:true,db,auth,user:cred.user,mods:fsMod,unsub:cloud.unsub,initialSnapshot:true};$("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();await startPairListener()}catch(e){console.error("Firebase connection failed",e);$("cloudStatus").textContent="Firebase failed: "+(e.code||e.message||"unknown error");refreshWho()}}
+async function startPairListener(){if(!cloud.ready||!pairCode)return;if(cloud.unsub)cloud.unsub();const {collection,query,orderBy,limit,onSnapshot}=cloud.mods;try{const q=query(collection(cloud.db,"pairs",pairCode,"feed"),orderBy("serverAt","desc"),limit(50));cloud.unsub=onSnapshot(q,snap=>{let previousIds=new Set(list("resetShared").map(x=>x._id).filter(Boolean)),items=[];snap.forEach(d=>items.push({...d.data(),_id:d.id}));localStorage.setItem("resetShared",JSON.stringify(items));if(!cloud.initialSnapshot){let newIncoming=items.find(x=>x.from!==profile&&x._id&&!previousIds.has(x._id));if(newIncoming){sound("receive");haptic([80,60,80]);toast(`${newIncoming.from} sent: ${newIncoming.title}`)}}cloud.initialSnapshot=false;renderShared()},e=>{console.error("Firestore listener failed",e);$("cloudStatus").textContent="Cloud listener failed: "+(e.code||e.message)})}catch(e){console.error("Listener setup failed",e)}}
 $("retryCloud").onclick=initCloud;
 
-showMoods();refreshWho();renderFavorites();renderHistory();renderShared();
-$("soundToggle").textContent=soundOn?"On":"Off";$("vibeToggle").textContent=vibeOn?"On":"Off";
-initCloud();
+showMoods();refreshWho();renderFavorites();renderHistory();renderShared();renderMedia();$("soundToggle").textContent=soundOn?"On":"Off";$("vibeToggle").textContent=vibeOn?"On":"Off";initCloud();
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
 </script>
 </body>
