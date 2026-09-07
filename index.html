@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111318">
 <link rel="manifest" href="manifest.json">
-<title>RESET — Toya + Tone</title>
+<title>RESET V6 — Toya + Tone</title>
 <style>
 :root{
   --bg:#0b0d12;--panel:rgba(23,27,34,.84);--panel-solid:#171b22;--panel2:#202631;--line:rgba(255,255,255,.10);
@@ -27,6 +27,9 @@ button,input,select{font:inherit}button{cursor:pointer}.app{max-width:780px;marg
 .needsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.needBtn{position:relative;text-align:left;min-height:94px;background:var(--panel-solid);border:1px solid var(--line);border-radius:20px;color:#fff;padding:14px;transition:all .18s ease}.needBtn b{display:block;margin-bottom:5px;font-size:15px}.needBtn span{color:var(--muted);font-size:13px;line-height:1.3}.needBtn:active{transform:scale(.975)}.needBtn.sending{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,#171b22);transform:scale(.98)}.needBtn.sent{border-color:var(--success);background:rgba(56,105,69,.33);box-shadow:0 0 0 1px rgba(159,215,172,.12) inset}.needBtn .sentMark{position:absolute;right:10px;top:10px;padding:4px 7px;border-radius:999px;background:var(--success);color:#0f2013;font-size:10px;font-weight:950;opacity:0;transform:scale(.8);transition:.16s}.needBtn.sent .sentMark{opacity:1;transform:scale(1)}
 .status{margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--muted)}.status.success{border-color:rgba(159,215,172,.38);color:#cfead5}.status.warn{border-color:rgba(231,199,125,.38);color:#ead9ae}
 .list{display:grid;gap:10px}.item{border:1px solid var(--line);background:var(--panel);padding:15px;border-radius:20px;backdrop-filter:blur(13px)}.item.incoming{border-color:color-mix(in srgb,var(--accent) 52%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 11%,#171b22),#171b22)}.item.unread{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 25%,transparent),0 14px 30px rgba(0,0,0,.16)}.item b{display:block;margin-bottom:4px}.item small{color:var(--muted)}.itemText{margin-top:8px;line-height:1.4}.metaLine{display:flex;align-items:center;justify-content:space-between;gap:10px}.youTag,.newTag{display:inline-flex;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:950}.youTag{background:rgba(255,255,255,.08);color:#dfe3e7}.newTag{background:var(--accent);color:var(--accentText)}.ackActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.ackActions button{border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#252c35;color:#fff;font-weight:850}.ackActions button.primary{background:var(--accent);color:var(--accentText)}
+
+.accountBox{margin-top:14px;padding:18px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 8%,var(--panel-solid)),var(--panel));box-shadow:0 12px 30px rgba(0,0,0,.14)}
+.accountBox h3{margin:0 0 5px;font-size:18px}.accountBox p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.45}.accountStatus{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 13px;border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.13);margin-bottom:12px}.accountStatus b{display:block}.accountStatus small{display:block;color:var(--muted);margin-top:3px}.accountDot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(231,199,125,.35)}.accountDot.secure{background:var(--success);box-shadow:0 0 14px rgba(159,215,172,.35)}.accountForm{display:grid;grid-template-columns:1fr 1fr;gap:8px}.accountForm input{min-width:0;width:100%;font-size:16px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#11151a;color:#fff}.accountBtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.accountBtns button{border:1px solid var(--line);border-radius:13px;padding:10px 12px;background:#252c35;color:#fff;font-weight:850}.accountBtns .primary{border:0}.uidBox{margin-top:11px;padding:11px 12px;border-radius:14px;background:#101419;border:1px solid var(--line);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all;color:#dfe5ea}.tinyGood{color:#cfead5}.tinyWarn{color:#ead9ae}@media(max-width:560px){.accountForm{grid-template-columns:1fr}}
 .mediaGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mediaCard{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border-radius:24px;padding:18px;overflow:hidden;min-height:170px}.mediaCard:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-45px;top:-45px;background:var(--accent);opacity:.09}.mediaIcon{font-size:27px}.mediaCard h3{margin:12px 0 4px;font-size:17px}.mediaCard p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}.mediaButtons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.mediaButtons a,.mediaButtons button{display:inline-flex;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#252c35;color:#fff;font-weight:850;font-size:13px}.mediaButtons .accent{background:var(--accent);color:var(--accentText);border-color:transparent}.addMedia{margin-top:14px;border:1px solid var(--line);background:var(--panel);border-radius:22px;padding:16px}.addMedia h3{margin:0 0 8px}.formRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.addMedia input,.addMedia select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:#11151a;color:#fff}.addMedia button{margin-top:8px;border:0;border-radius:13px;padding:11px 13px;background:var(--accent);color:var(--accentText);font-weight:900}.tiny{font-size:11px;color:var(--muted);line-height:1.45;margin-top:8px}
 .settingsGrid{display:grid;gap:10px}.setting{display:flex;justify-content:space-between;gap:14px;align-items:center;border:1px solid var(--line);background:var(--panel);padding:14px;border-radius:18px}.setting small{display:block;color:var(--muted);margin-top:3px}.setting button{border:0;border-radius:12px;padding:10px 12px;font-weight:850;background:#2a313c;color:#fff}.setting input{background:#11151a;color:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}.note{font-size:12px;color:var(--muted);line-height:1.5;margin-top:18px}
 .toast{position:fixed;left:50%;bottom:85px;transform:translate(-50%,20px);z-index:40;background:#f4f5f6;color:#15171a;padding:11px 14px;border-radius:999px;font-weight:900;box-shadow:0 16px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
@@ -102,6 +105,15 @@ button,input,select{font:inherit}button{cursor:pointer}.app{max-width:780px;marg
 
   <section class="panel" id="settings">
     <div class="sectionHead"><div><h2>Settings</h2><p>Make RESET feel right on your phone.</p></div></div>
+    <div class="accountBox">
+      <h3>🔐 Your RESET account</h3>
+      <p>Secure this device with your own email + password so your identity survives browser clears/reinstalls. Tone will create his own account on his phone later.</p>
+      <div class="accountStatus"><div><b id="accountLabel">Checking account…</b><small id="accountSub">Connecting to Firebase</small></div><span class="accountDot" id="accountDot"></span></div>
+      <div class="accountForm"><input id="accountEmail" type="email" autocomplete="email" placeholder="Your email"><input id="accountPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Password (6+ characters)"></div>
+      <div class="accountBtns"><button class="primary" id="secureAccount">Secure this device</button><button id="signInAccount">Sign in instead</button><button id="copyUid">Copy UID</button></div>
+      <div class="uidBox" id="uidDisplay">UID will appear after Firebase connects.</div>
+      <div class="tiny" id="accountMsg" style="margin-top:9px">Your current anonymous account will be upgraded in place — no new couple code needed.</div>
+    </div>
     <div class="settingsGrid">
       <div class="setting"><span><b>Sound</b><small>Different sounds for sending, receiving, and cards.</small></span><button id="soundToggle">On</button></div>
       <div class="setting"><span><b>Vibration</b><small>Haptic feedback when you tap/send.</small></span><button id="vibeToggle">On</button></div>
@@ -125,7 +137,7 @@ let profile=localStorage.getItem("resetProfile")||"Toya";
 let pairCode=localStorage.getItem("resetPairCode")||"";
 let lastAction="morning",lastMood=null;
 let soundOn=localStorage.getItem("resetSound")!=="off",vibeOn=localStorage.getItem("resetVibe")!=="off";
-let cloud={ready:false,db:null,auth:null,user:null,mods:null,unsub:null,initialSnapshot:true};
+let cloud={ready:false,db:null,auth:null,authMod:null,user:null,mods:null,unsub:null,initialSnapshot:true};
 let audioCtx=null;
 
 function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
@@ -212,7 +224,40 @@ $("vibeToggle").onclick=()=>{vibeOn=!vibeOn;localStorage.setItem("resetVibe",vib
 $("morningTime").value=localStorage.getItem("resetMorningTime")||"08:00";$("eveningTime").value=localStorage.getItem("resetEveningTime")||"19:30";$("morningTime").onchange=e=>localStorage.setItem("resetMorningTime",e.target.value);$("eveningTime").onchange=e=>localStorage.setItem("resetEveningTime",e.target.value);
 $("notifyTest").onclick=async()=>{if(!("Notification" in window)){alert("Notifications are not supported in this browser.");return}let p=Notification.permission;if(p!=="granted")p=await Notification.requestPermission();if(p==="granted"){new Notification("RESET",{body:profile==="Toya"?"Toya, RESET is ready when you need it.":"Tone, one move for today.",icon:"icon.svg"});$("notifyTest").textContent="Enabled ✓"}else $("notifyTest").textContent="Blocked"};
 
-async function initCloud(){const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));if(placeholder){$("cloudStatus").textContent="Firebase config is still a placeholder.";refreshWho();return}try{const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");const app=appMod.getApps().length?appMod.getApp():appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);let cred=auth.currentUser?{user:auth.currentUser}:await authMod.signInAnonymously(auth);cloud={ready:true,db,auth,user:cred.user,mods:fsMod,unsub:cloud.unsub,initialSnapshot:true};$("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();await startPairListener()}catch(e){console.error("Firebase connection failed",e);$("cloudStatus").textContent="Firebase failed: "+(e.code||e.message||"unknown error");refreshWho()}}
+function renderAccount(){
+  const u=cloud.auth?.currentUser||cloud.user;
+  if(!u){$("accountLabel").textContent="Not connected";$("accountSub").textContent="Connect Firebase first";$("uidDisplay").textContent="UID unavailable";$("accountDot").classList.remove("secure");return}
+  cloud.user=u;
+  const secured=!u.isAnonymous;
+  $("accountLabel").textContent=secured?`${profile} • Secured ✓`:`${profile} • Temporary anonymous account`;
+  $("accountSub").textContent=secured?(u.email||"Permanent Firebase account"):"Upgrade this device before private media sync";
+  $("uidDisplay").textContent=u.uid;
+  $("accountDot").classList.toggle("secure",secured);
+  if(secured && u.email) $("accountEmail").value=u.email;
+  $("secureAccount").textContent=secured?"Account secured ✓":"Secure this device";
+}
+function accountMessage(msg,good=false){$("accountMsg").textContent=msg;$("accountMsg").className="tiny "+(good?"tinyGood":"tinyWarn")}
+$("copyUid").onclick=async()=>{const u=cloud.auth?.currentUser;if(!u){toast("Firebase isn't connected yet");return}try{await navigator.clipboard.writeText(u.uid);toast("UID copied ✓")}catch{prompt("Copy your UID:",u.uid)}};
+$("secureAccount").onclick=async()=>{
+  if(!cloud.ready||!cloud.authMod){accountMessage("Firebase is not connected yet.");return}
+  const email=$("accountEmail").value.trim(),password=$("accountPassword").value;
+  if(!email||password.length<6){accountMessage("Enter a valid email and a password with at least 6 characters.");return}
+  const u=cloud.auth.currentUser;
+  if(u && !u.isAnonymous){accountMessage("This device is already secured to "+(u.email||"a permanent account")+".",true);renderAccount();return}
+  try{
+    const credential=cloud.authMod.EmailAuthProvider.credential(email,password);
+    const result=await cloud.authMod.linkWithCredential(u,credential);
+    cloud.user=result.user;renderAccount();accountMessage("Account secured ✓ Your Firebase UID stayed the same.",true);sound("send");haptic([45,40,45]);
+  }catch(e){console.error("Account upgrade failed",e);if(e.code==="auth/email-already-in-use")accountMessage("That email already has a RESET account. Use ‘Sign in instead’. ");else if(e.code==="auth/operation-not-allowed")accountMessage("Email/Password sign-in is not enabled in Firebase yet.");else accountMessage("Could not secure account: "+(e.code||e.message));}
+};
+$("signInAccount").onclick=async()=>{
+  if(!cloud.ready||!cloud.authMod){accountMessage("Firebase is not connected yet.");return}
+  const email=$("accountEmail").value.trim(),password=$("accountPassword").value;
+  if(!email||!password){accountMessage("Enter the email + password for your RESET account.");return}
+  try{const result=await cloud.authMod.signInWithEmailAndPassword(cloud.auth,email,password);cloud.user=result.user;renderAccount();accountMessage("Signed in ✓",true);cloud.initialSnapshot=true;await startPairListener()}catch(e){console.error("Sign in failed",e);accountMessage("Sign in failed: "+(e.code||e.message));}
+};
+
+async function initCloud(){const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));if(placeholder){$("cloudStatus").textContent="Firebase config is still a placeholder.";refreshWho();return}try{const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");const app=appMod.getApps().length?appMod.getApp():appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);let cred=auth.currentUser?{user:auth.currentUser}:await authMod.signInAnonymously(auth);cloud={ready:true,db,auth,authMod,user:cred.user,mods:fsMod,unsub:cloud.unsub,initialSnapshot:true};$("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();renderAccount();await startPairListener()}catch(e){console.error("Firebase connection failed",e);$("cloudStatus").textContent="Firebase failed: "+(e.code||e.message||"unknown error");refreshWho();renderAccount()}}
 async function startPairListener(){if(!cloud.ready||!pairCode)return;if(cloud.unsub)cloud.unsub();const {collection,query,orderBy,limit,onSnapshot}=cloud.mods;try{const q=query(collection(cloud.db,"pairs",pairCode,"feed"),orderBy("serverAt","desc"),limit(50));cloud.unsub=onSnapshot(q,snap=>{let previousIds=new Set(list("resetShared").map(x=>x._id).filter(Boolean)),items=[];snap.forEach(d=>items.push({...d.data(),_id:d.id}));localStorage.setItem("resetShared",JSON.stringify(items));if(!cloud.initialSnapshot){let newIncoming=items.find(x=>x.from!==profile&&x._id&&!previousIds.has(x._id));if(newIncoming){sound("receive");haptic([80,60,80]);toast(`${newIncoming.from} sent: ${newIncoming.title}`)}}cloud.initialSnapshot=false;renderShared()},e=>{console.error("Firestore listener failed",e);$("cloudStatus").textContent="Cloud listener failed: "+(e.code||e.message)})}catch(e){console.error("Listener setup failed",e)}}
 $("retryCloud").onclick=initCloud;
 

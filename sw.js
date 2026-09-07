@@ -1,4 +1,4 @@
-const C='reset-v5-ux1';
+const C='reset-v6-ux1';
 const A=['./','./index.html','./data.js','./firebase-config.js','./manifest.json','./icon.svg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x))))])));
