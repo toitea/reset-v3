@@ -777,6 +777,16 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
  .moneyCards{grid-template-columns:1fr 1fr}
 }
 
+
+
+/* V13 — PUSH READY */
+.pushPrefs{margin-top:12px;padding:14px;border-radius:18px;background:#1b2129;border:1px solid rgba(255,255,255,.07)}
+.pushPrefsHead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
+.pushPrefsHead small{color:#9fa8b5}
+.pushPrefs label{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 2px;border-top:1px solid rgba(255,255,255,.06);font-weight:750}
+.pushPrefs input{width:20px;height:20px;accent-color:#e0a7b9}
+.pushReady{color:#b9d9c0!important}.pushWarn{color:#e4c985!important}
+
 </style>
 </head>
 <!-- RESET V10 Soft Luxe Polish -->
@@ -796,7 +806,7 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
   </nav>
 
   <section class="panel active" id="today">
-    <div class="versionRibbon">RESET V12 · LIFE HUB</div>
+    <div class="versionRibbon">RESET V13 · PUSH READY</div>
 
     <section class="welcomeCard">
       <div class="welcomeTop">
@@ -1060,7 +1070,17 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
       <div class="securityRows">
         <div><b>App lock</b><small>Optional PIN lock on this device.</small><button id="setPin">Set / change PIN</button></div>
         <div><b>Notifications</b><small id="notifStatus">Check notification permission.</small><button id="enableNotif">Enable / test</button></div>
+        <div><b>Push registration</b><small id="pushStatus">This phone is not registered for Firebase push yet.</small><button id="registerPush">Register phone</button></div>
+        <div><b>FCM device token</b><small id="pushTokenShort">No token yet.</small><button id="copyPushToken">Copy token</button></div>
         <div><b>Private data</b><small>Life trackers stay on this device by default.</small><span class="securePill">LOCAL</span></div>
+      </div>
+      <div class="pushPrefs">
+        <div class="pushPrefsHead"><b>What can notify me?</b><small>Saved on this phone.</small></div>
+        <label><span>🌱 IUI / appointments</span><input type="checkbox" id="prefFert" checked></label>
+        <label><span>💸 Bills / money</span><input type="checkbox" id="prefBills" checked></label>
+        <label><span>🏋🏾‍♀️ Gym reminders</span><input type="checkbox" id="prefGym"></label>
+        <label><span>♡ Us activity</span><input type="checkbox" id="prefUs" checked></label>
+        <label><span>✨ Daily motivation</span><input type="checkbox" id="prefMotivation"></label>
       </div>
     </section>
 
@@ -1100,7 +1120,7 @@ let profile=localStorage.getItem("resetProfile")||"Toya";
 let pairCode=localStorage.getItem("resetPairCode")||"";
 let lastAction="morning",lastMood=null;
 let soundOn=localStorage.getItem("resetSound")!=="off",vibeOn=localStorage.getItem("resetVibe")!=="off";
-let cloud={ready:false,db:null,auth:null,authMod:null,user:null,mods:null,unsub:null,initialSnapshot:true};
+let cloud={ready:false,app:null,db:null,auth:null,authMod:null,user:null,mods:null,unsub:null,initialSnapshot:true};
 let audioCtx=null;
 
 function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
@@ -1276,12 +1296,12 @@ $("signInAccount").onclick=async()=>{
   try{const result=await cloud.authMod.signInWithEmailAndPassword(cloud.auth,email,password);cloud.user=result.user;renderAccount();accountMessage("Signed in ✓",true);cloud.initialSnapshot=true;await startPairListener()}catch(e){console.error("Sign in failed",e);accountMessage("Sign in failed: "+(e.code||e.message));}
 };
 
-async function initCloud(){const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));if(placeholder){$("cloudStatus").textContent="Firebase config is still a placeholder.";refreshWho();return}try{const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");const app=appMod.getApps().length?appMod.getApp():appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);let cred=auth.currentUser?{user:auth.currentUser}:await authMod.signInAnonymously(auth);cloud={ready:true,db,auth,authMod,user:cred.user,mods:fsMod,unsub:cloud.unsub,initialSnapshot:true};$("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();renderAccount();await startPairListener()}catch(e){console.error("Firebase connection failed",e);$("cloudStatus").textContent="Firebase failed: "+(e.code||e.message||"unknown error");refreshWho();renderAccount()}}
+async function initCloud(){const placeholder=Object.values(firebaseConfig).some(v=>String(v).includes("PASTE_"));if(placeholder){$("cloudStatus").textContent="Firebase config is still a placeholder.";refreshWho();return}try{const appMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js");const authMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js");const fsMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js");const app=appMod.getApps().length?appMod.getApp():appMod.initializeApp(firebaseConfig),auth=authMod.getAuth(app),db=fsMod.getFirestore(app);let cred=auth.currentUser?{user:auth.currentUser}:await authMod.signInAnonymously(auth);cloud={ready:true,app,db,auth,authMod,user:cred.user,mods:fsMod,unsub:cloud.unsub,initialSnapshot:true};$("cloudStatus").textContent="Connected to Firebase ✓";refreshWho();renderAccount();await startPairListener()}catch(e){console.error("Firebase connection failed",e);$("cloudStatus").textContent="Firebase failed: "+(e.code||e.message||"unknown error");refreshWho();renderAccount()}}
 async function startPairListener(){if(!cloud.ready||!pairCode)return;if(cloud.unsub)cloud.unsub();const {collection,query,orderBy,limit,onSnapshot}=cloud.mods;try{const q=query(collection(cloud.db,"pairs",pairCode,"feed"),orderBy("serverAt","desc"),limit(50));cloud.unsub=onSnapshot(q,snap=>{let previousIds=new Set(list("resetShared").map(x=>x._id).filter(Boolean)),items=[];snap.forEach(d=>items.push({...d.data(),_id:d.id}));localStorage.setItem("resetShared",JSON.stringify(items));if(!cloud.initialSnapshot){let newIncoming=items.find(x=>x.from!==profile&&x._id&&!previousIds.has(x._id));if(newIncoming){sound("receive");haptic([80,60,80]);toast(`${newIncoming.from} sent: ${newIncoming.title}`)}}cloud.initialSnapshot=false;renderShared()},e=>{console.error("Firestore listener failed",e);$("cloudStatus").textContent="Cloud listener failed: "+(e.code||e.message)})}catch(e){console.error("Listener setup failed",e)}}
 $("retryCloud").onclick=initCloud;
 
 showMoods();refreshWho();renderFavorites();renderHistory();renderShared();syncStreamPicker();renderMedia();renderMemories();renderOurMedia();rotateMemorySpotlight();$("soundToggle").textContent=soundOn?"On":"Off";$("vibeToggle").textContent=vibeOn?"On":"Off";initCloud();
-if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").then(r=>r.update()).catch(console.error);
 
 
 // V11 guided navigation
@@ -1404,18 +1424,78 @@ $("unlockBtn").onclick=async()=>{
 if(localStorage.getItem("resetPinHash")&&sessionStorage.getItem("resetUnlocked")!=="1")$("appLock").classList.add("show");
 
 // Browser notification permission + test. True scheduled/background push still needs FCM/backend configuration.
+const RESET_VAPID_KEY="BLyAyQJv1Lcp4guVuHlOcHpRMTxoy2AKPBq4VLGkQmm6ASbjIZH6DweOzQxyWMwTfTK1VC8ATj-O--0nvmb7k9s";
 function updateNotifStatus(){
-  $("notifStatus").textContent=("Notification"in window)?`Permission: ${Notification.permission}`:"Notifications not supported in this browser.";
+  if(!("Notification"in window)){$("notifStatus").textContent="Notifications are not supported in this browser.";return}
+  $("notifStatus").textContent=`Permission: ${Notification.permission}`;
+  $("notifStatus").className=Notification.permission==="granted"?"pushReady":"";
+}
+async function getResetSW(){
+  if(!("serviceWorker"in navigator))throw new Error("Service worker not supported");
+  let reg=await navigator.serviceWorker.getRegistration();
+  if(!reg)reg=await navigator.serviceWorker.register("sw.js");
+  await navigator.serviceWorker.ready;
+  return reg;
 }
 $("enableNotif").onclick=async()=>{
-  if(!("Notification"in window)){toast("This browser does not support notifications");return}
-  const p=await Notification.requestPermission();updateNotifStatus();
-  if(p==="granted"){
-    try{new Notification("RESET ✓",{body:"Notifications are allowed on this phone."})}catch(e){}
-    toast("Notification permission granted ✓")
-  } else toast("Notification permission was not granted");
+  if(!("Notification"in window)){toast("Notifications are not supported");return}
+  let p=Notification.permission;
+  if(p!=="granted")p=await Notification.requestPermission();
+  updateNotifStatus();
+  if(p!=="granted"){toast("Notification permission was not granted");return}
+  try{
+    const reg=await getResetSW();
+    await reg.showNotification("RESET ✓",{body:"This is a real service-worker notification from RESET.",icon:"icon.svg",badge:"icon.svg",tag:"reset-test",renotify:true});
+    $("enableNotif").textContent="Test sent ✓";
+    toast("Test notification sent ✓");
+  }catch(e){console.error(e);toast("Permission is on, but the test failed")}
 };
-updateNotifStatus();
+function renderPushStatus(){
+  const t=localStorage.getItem("resetFcmToken")||"";
+  $("pushStatus").textContent=t?"This phone is registered for Firebase push ✓":"This phone is not registered for Firebase push yet.";
+  $("pushStatus").className=t?"pushReady":"";
+  $("pushTokenShort").textContent=t?`${t.slice(0,18)}…${t.slice(-8)}`:"No token yet.";
+  $("registerPush").textContent=t?"Re-register":"Register phone";
+}
+$("registerPush").onclick=async()=>{
+  try{
+    if(!cloud.ready||!cloud.app){toast("Wait for Firebase to connect first");return}
+    let p=Notification.permission;
+    if(p!=="granted")p=await Notification.requestPermission();
+    if(p!=="granted"){toast("Allow notifications first");updateNotifStatus();return}
+    $("registerPush").textContent="Registering…";
+    const reg=await getResetSW();
+    const msgMod=await import("https://www.gstatic.com/firebasejs/12.2.1/firebase-messaging.js");
+    if(msgMod.isSupported && !(await msgMod.isSupported()))throw new Error("Firebase Messaging is not supported on this browser");
+    const messaging=msgMod.getMessaging(cloud.app);
+    const token=await msgMod.getToken(messaging,{vapidKey:RESET_VAPID_KEY,serviceWorkerRegistration:reg});
+    if(!token)throw new Error("Firebase returned no device token");
+    localStorage.setItem("resetFcmToken",token);
+    localStorage.setItem("resetFcmUid",cloud.auth?.currentUser?.uid||"");
+    renderPushStatus();haptic([35,30,35]);sound("send");toast("This phone is push-ready ✓");
+  }catch(e){
+    console.error("Push registration failed",e);
+    $("pushStatus").textContent="Push registration failed: "+(e.code||e.message||"unknown error");
+    $("pushStatus").className="pushWarn";
+    $("registerPush").textContent="Try again";
+  }
+};
+$("copyPushToken").onclick=async()=>{
+  const t=localStorage.getItem("resetFcmToken")||"";
+  if(!t){toast("Register this phone first");return}
+  try{await navigator.clipboard.writeText(t);toast("FCM token copied ✓")}catch{prompt("Copy this FCM token:",t)}
+};
+const prefIds=["prefFert","prefBills","prefGym","prefUs","prefMotivation"];
+function loadPushPrefs(){
+  const saved=JSON.parse(localStorage.getItem("resetPushPrefs")||"null");
+  if(saved)prefIds.forEach(id=>{if($(id)&&Object.prototype.hasOwnProperty.call(saved,id))$(id).checked=!!saved[id]});
+}
+function savePushPrefs(){
+  const x={};prefIds.forEach(id=>x[id]=!!$(id)?.checked);
+  localStorage.setItem("resetPushPrefs",JSON.stringify(x));toast("Notification choices saved ✓");
+}
+prefIds.forEach(id=>$(id)?.addEventListener("change",savePushPrefs));
+updateNotifStatus();renderPushStatus();loadPushPrefs();
 
 renderGym();renderFert();renderHealth();renderMoney();updateLifeSnapshot();
 
