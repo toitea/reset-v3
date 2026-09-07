@@ -1,4 +1,4 @@
-const C='reset-v11-big-redesign-20260907-1';
+const C='reset-v12-life-security-1';
 const A=['./','./index.html','./data.js','./firebase-config.js','./manifest.json','./icon.svg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x))))])));

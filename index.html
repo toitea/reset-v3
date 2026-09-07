@@ -668,6 +668,115 @@ body{
   .primaryNav{bottom:7px!important}
 }
 
+
+
+/* =========================================================
+   RESET V12 — LIFE HUB + SECURITY + TONE STUDIO
+   ========================================================= */
+.lifeHero{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:20px;border:1px solid rgba(255,255,255,.1);border-radius:28px;
+  background:radial-gradient(circle at 90% 10%,rgba(174,211,183,.18),transparent 30%),linear-gradient(145deg,#252b32,#171b22);
+}
+.lifeHero small{font-size:10px;font-weight:950;letter-spacing:.13em;color:#afd2b3}
+.lifeHero h3{margin:6px 0 0;font-size:20px;letter-spacing:-.02em}
+.lifeHero>span{font-size:32px}
+.lifeTiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.lifeTiles button{
+  min-height:126px;padding:16px;text-align:left;color:white;border-radius:23px;
+  border:1px solid rgba(255,255,255,.1);background:linear-gradient(145deg,#212730,#171b22);
+}
+.lifeTiles button>span{display:block;font-size:27px;margin-bottom:12px}
+.lifeTiles b{display:block;font-size:17px}
+.lifeTiles small{display:block;color:#aeb5c1;margin-top:4px;line-height:1.35}
+.lifeView{display:none;margin-top:14px;padding:17px;border-radius:25px;border:1px solid rgba(255,255,255,.1);background:#141920}
+.lifeView.open{display:block;animation:v10PanelIn .2s ease}
+.lifeViewHead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:13px}
+.lifeViewHead b{font-size:18px}.lifeViewHead small{display:block;color:#aeb5c1;margin-top:3px}
+.lifeViewHead button{width:35px;height:35px;border-radius:12px;background:#262d37;color:white;border:1px solid rgba(255,255,255,.1);font-size:21px}
+.trackerStats,.moneyCards{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.trackerStats>div,.moneyCards>div{
+  padding:13px;border-radius:17px;background:#202630;border:1px solid rgba(255,255,255,.08)
+}
+.trackerStats b,.moneyCards b{display:block;font-size:22px}.trackerStats small,.moneyCards small{color:#9fa8b5}
+.moneyCards{grid-template-columns:repeat(2,1fr)}
+.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.formGrid.two{grid-template-columns:1fr 1fr}
+.formGrid input,.formGrid select{
+  width:100%;min-width:0;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.1);
+  color:white;background:#202630;font:inherit
+}
+.lifeSave{
+  width:100%;margin-top:9px;padding:13px;border-radius:15px;border:0;
+  background:linear-gradient(145deg,#f2bfce,#db98ae);color:#26161d;font-weight:900
+}
+.lifeList{display:grid;gap:7px;margin-top:10px}
+.lifeEntry{
+  display:flex;justify-content:space-between;gap:10px;padding:11px 12px;border-radius:15px;background:#1c222b;border:1px solid rgba(255,255,255,.07)
+}
+.lifeEntry b{display:block}.lifeEntry small{color:#aab2be}.lifeEntry button{border:0;background:transparent;color:#d99caf;font-size:18px}
+.privacyNote{padding:10px 12px;border-radius:14px;background:rgba(175,210,179,.08);color:#c7ddcc;font-size:12px;line-height:1.4;margin-bottom:10px}
+.subCard{padding:14px;margin-top:10px;border-radius:18px;background:#1a2028;border:1px solid rgba(255,255,255,.07)}
+.subCard>b{display:block;margin-bottom:9px}
+.fundBar{height:9px;border-radius:999px;background:#2a3039;margin:12px 0 6px;overflow:hidden}
+.fundBar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#afd2b3,#f2bfce);border-radius:inherit}
+.toneStudio{display:none;margin-top:15px;padding:18px;border-radius:28px;border:1px solid rgba(255,255,255,.12);
+ background:
+ linear-gradient(135deg,rgba(255,205,73,.08),transparent 40%),
+ repeating-linear-gradient(-12deg,rgba(255,255,255,.018) 0 2px,transparent 2px 10px),
+ #12161d;
+ position:relative;overflow:hidden
+}
+body[data-profile="Tone"] .toneStudio{display:block}
+body[data-profile="Tone"]{
+ --accent:#e1bd64;--accentText:#211a0a;
+ background:
+ radial-gradient(circle at 85% 10%,rgba(103,67,255,.10),transparent 25%),
+ radial-gradient(circle at 10% 20%,rgba(255,194,41,.08),transparent 28%),
+ linear-gradient(180deg,#0c0f14,#090b0f 62%,#08090d)
+}
+body[data-profile="Tone"] .welcomeCard{
+ background:
+ linear-gradient(115deg,rgba(255,198,53,.08),transparent 32%),
+ repeating-linear-gradient(-8deg,rgba(255,255,255,.018) 0 2px,transparent 2px 12px),
+ linear-gradient(145deg,#28241d,#171a21 72%)
+}
+body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#c9a84e)}
+.studioHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.studioHead h3{margin:4px 0 4px;font-size:25px}.studioHead p{margin:0;color:#aeb5c1;line-height:1.4}
+.spray{
+  flex:0 0 56px;width:56px;height:56px;display:grid;place-items:center;border-radius:18px;
+  font-size:20px;font-weight:1000;transform:rotate(-6deg);color:#111;
+  background:linear-gradient(145deg,#f3d36e,#9d7cff);
+  box-shadow:8px 9px 0 rgba(255,255,255,.03)
+}
+.studioGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}
+.studioGrid button{
+  min-height:108px;text-align:left;padding:13px;border-radius:18px;color:white;
+  background:#1f252d;border:1px solid rgba(255,255,255,.09);font-size:21px
+}
+.studioGrid b{display:block;font-size:15px;margin-top:6px}.studioGrid small{display:block;color:#9fa8b5;margin-top:2px}
+.artPrompt{margin-top:10px;padding:13px;border-left:3px solid #e1bd64;background:rgba(225,189,100,.06);border-radius:0 14px 14px 0;color:#e8e2d2}
+.securityCard{margin-top:18px;padding:17px;border:1px solid rgba(255,255,255,.1);border-radius:25px;background:#141920}
+.securityHead{display:flex;justify-content:space-between;align-items:center}.securityHead h3{margin:3px 0 0;font-size:22px}.securityHead>span{font-size:30px}
+.securityCard>p{color:#aeb5c1;line-height:1.5;font-size:13px}
+.securityRows{display:grid;gap:8px;margin-top:12px}
+.securityRows>div{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:12px;border-radius:16px;background:#202630}
+.securityRows b{display:block}.securityRows small{grid-column:1;color:#9fa8b5}
+.securityRows button{grid-column:2;grid-row:1/3;padding:9px 10px;border-radius:12px;border:0;background:#f0b8ca;color:#23151a;font-weight:850}
+.securePill{grid-column:2;grid-row:1/3;padding:6px 8px;border-radius:999px;background:rgba(175,210,179,.12);color:#b9d9c0;font-size:10px;font-weight:950}
+.appLock{display:none;position:fixed;inset:0;z-index:5000;align-items:center;justify-content:center;padding:20px;background:rgba(7,9,13,.96);backdrop-filter:blur(22px)}
+.appLock.show{display:flex}
+.lockCard{width:min(100%,360px);padding:24px;text-align:center;border-radius:28px;border:1px solid rgba(255,255,255,.1);background:#171b22;box-shadow:0 25px 80px rgba(0,0,0,.45)}
+.lockLogo{width:64px;height:64px;margin:0 auto 14px;display:grid;place-items:center;border-radius:21px;background:linear-gradient(145deg,#f2bfce,#db98ae);color:#26161d;font-size:30px;font-weight:1000}
+.lockCard h2{margin:0 0 7px}.lockCard p,.lockCard small{color:#aeb5c1}.lockCard input{width:100%;padding:14px;margin:12px 0 8px;border-radius:15px;border:1px solid rgba(255,255,255,.1);background:#222832;color:white;text-align:center;font-size:20px;letter-spacing:.15em}
+.lockCard button{width:100%;padding:13px;border:0;border-radius:15px;background:#f0b8ca;color:#25161c;font-weight:900}
+@media(max-width:430px){
+ .formGrid,.formGrid.two{grid-template-columns:1fr}
+ .lifeTiles{grid-template-columns:1fr 1fr}
+ .moneyCards{grid-template-columns:1fr 1fr}
+}
+
 </style>
 </head>
 <!-- RESET V10 Soft Luxe Polish -->
@@ -680,14 +789,14 @@ body{
 
   <nav class="tabs primaryNav" aria-label="Main navigation">
     <button class="active" data-tab="today"><span>⌂</span><small>Today</small></button>
-    <button data-tab="needs"><span>♥</span><small>I Need</small></button>
+    <button data-tab="life"><span>✚</span><small>Life</small></button>
     <button data-tab="shared"><span>♡</span><small>Us</small><span class="badge" id="usBadge">0</span></button>
     <button data-tab="media"><span>♪</span><small>Vibe</small></button>
     <button data-tab="more"><span>•••</span><small>More</small></button>
   </nav>
 
   <section class="panel active" id="today">
-    <div class="versionRibbon">RESET V11 · NEW LOOK</div>
+    <div class="versionRibbon">RESET V12 · LIFE HUB</div>
 
     <section class="welcomeCard">
       <div class="welcomeTop">
@@ -749,7 +858,128 @@ body{
     </div>
   </section>
 
-  <section class="panel" id="needs">
+  
+<section class="panel" id="life">
+  <div class="sectionHead simpleHead">
+    <div>
+      <div class="eyebrow">LIFE DASHBOARD</div>
+      <h2>Keep life from living in your head.</h2>
+      <p>Gym, IUI logistics, private health check-ins, bills, and transition money in one place.</p>
+    </div>
+  </div>
+
+  <div class="lifeHero">
+    <div><small>TODAY'S SNAPSHOT</small><h3 id="lifeSnapshot">Nothing urgent yet. Add what matters.</h3></div>
+    <span>✦</span>
+  </div>
+
+  <div class="lifeTiles">
+    <button data-lifeview="gym"><span>🏋🏾‍♀️</span><b>Gym</b><small>Workouts + consistency</small></button>
+    <button data-lifeview="fertility"><span>🌱</span><b>Fertility</b><small>IUI dates + logistics</small></button>
+    <button data-lifeview="health"><span>❤️‍🩹</span><b>Health</b><small>Private check-ins</small></button>
+    <button data-lifeview="money"><span>💸</span><b>Money</b><small>Bills + transition fund</small></button>
+  </div>
+
+  <section class="lifeView" id="life-gym">
+    <div class="lifeViewHead"><div><b>🏋🏾‍♀️ Gym tracker</b><small>Simple enough to use in under a minute.</small></div><button data-close-life>×</button></div>
+    <div class="trackerStats"><div><b id="gymCount">0</b><small>workouts</small></div><div><b id="gymMinutes">0</b><small>minutes</small></div></div>
+    <div class="formGrid">
+      <input id="gymDate" type="date">
+      <select id="gymPerson"><option>Toya</option><option>Tone</option></select>
+      <input id="gymMinutesInput" type="number" min="1" placeholder="Minutes">
+      <input id="gymWorkout" placeholder="Workout: walk, legs, upper...">
+    </div>
+    <button class="lifeSave" id="saveGym">Save workout ✓</button>
+    <div class="lifeList" id="gymList"></div>
+  </section>
+
+  <section class="lifeView" id="life-fertility">
+    <div class="lifeViewHead"><div><b>🌱 Fertility + IUI planner</b><small>Appointments and logistics, not medical advice.</small></div><button data-close-life>×</button></div>
+    <div class="privacyNote">🔒 Saved privately on this phone unless you choose to share the note yourself.</div>
+    <div class="formGrid">
+      <input id="fertDate" type="datetime-local">
+      <input id="fertTitle" placeholder="Monitoring, labs, ultrasound, IUI...">
+      <input id="fertPlace" placeholder="Clinic / location">
+      <input id="fertNote" placeholder="What to bring / ask / remember">
+    </div>
+    <button class="lifeSave" id="saveFert">Add appointment ✓</button>
+    <div class="lifeList" id="fertList"></div>
+  </section>
+
+  <section class="lifeView" id="life-health">
+    <div class="lifeViewHead"><div><b>❤️‍🩹 Private health check-in</b><small>Each person can track their own basics.</small></div><button data-close-life>×</button></div>
+    <div class="privacyNote">🔒 This tracker is local-only by default. It is not sent to the shared room.</div>
+    <div class="formGrid">
+      <input id="healthDate" type="date">
+      <select id="healthPerson"><option>Toya</option><option>Tone</option></select>
+      <select id="healthEnergy"><option value="">Energy</option><option>Great</option><option>Okay</option><option>Low</option><option>Rough</option></select>
+      <input id="healthSleep" type="number" step=".5" min="0" max="24" placeholder="Sleep hours">
+      <input id="healthWater" type="number" min="0" placeholder="Water cups">
+      <input id="healthNote" placeholder="Optional note">
+    </div>
+    <button class="lifeSave" id="saveHealth">Save check-in ✓</button>
+    <div class="lifeList" id="healthList"></div>
+  </section>
+
+  <section class="lifeView" id="life-money">
+    <div class="lifeViewHead"><div><b>💸 Money + transition planner</b><small>See bills and what is actually left.</small></div><button data-close-life>×</button></div>
+
+    <div class="moneyCards">
+      <div><small>Income</small><b id="moneyIncome">$0</b></div>
+      <div><small>Bills</small><b id="moneyBills">$0</b></div>
+      <div><small>Left</small><b id="moneyLeft">$0</b></div>
+      <div><small>Transition fund</small><b id="moneyFund">$0</b></div>
+    </div>
+
+    <div class="subCard">
+      <b>Monthly income</b>
+      <div class="formGrid two">
+        <select id="incomePerson"><option>Toya</option><option>Tone</option><option>Shared</option></select>
+        <input id="incomeAmount" type="number" step=".01" min="0" placeholder="Amount">
+      </div>
+      <button class="lifeSave" id="saveIncome">Add income</button>
+    </div>
+
+    <div class="subCard">
+      <b>Add a bill</b>
+      <div class="formGrid">
+        <input id="billName" placeholder="Rent, phone, car, clinic...">
+        <input id="billAmount" type="number" step=".01" min="0" placeholder="Amount">
+        <input id="billDue" type="date">
+        <select id="billWho"><option>Toya</option><option>Tone</option><option>Shared</option></select>
+      </div>
+      <button class="lifeSave" id="saveBill">Add bill ✓</button>
+    </div>
+
+    <div class="subCard">
+      <b>Transition / emergency fund</b>
+      <div class="formGrid two">
+        <input id="fundGoal" type="number" step=".01" min="0" placeholder="Goal">
+        <input id="fundAdd" type="number" step=".01" min="0" placeholder="Add saved amount">
+      </div>
+      <button class="lifeSave" id="saveFund">Update fund</button>
+      <div class="fundBar"><i id="fundBarFill"></i></div>
+      <small id="fundProgress">No goal yet.</small>
+    </div>
+    <div class="lifeList" id="moneyList"></div>
+  </section>
+
+  <section class="toneStudio" id="toneStudio">
+    <div class="studioHead">
+      <div><div class="eyebrow">TONE'S SIDE</div><h3>🎨 Studio Mode</h3><p>Painting, graffiti, tattoo ideas, and making something instead of just scrolling.</p></div>
+      <span class="spray">TA</span>
+    </div>
+    <div class="studioGrid">
+      <button data-art="Paint something with only 3 colors. No overthinking.">🖌️ <b>Paint</b><small>3-color challenge</small></button>
+      <button data-art="Sketch one graffiti word or tag concept and try 3 letter styles.">🧱 <b>Graffiti</b><small>Letter-style rep</small></button>
+      <button data-art="Draw one tattoo concept you would actually be proud to put in a portfolio.">🖋️ <b>Tattoo sketch</b><small>Portfolio idea</small></button>
+      <button data-art="Make something weird for 20 minutes. It does not have to be sellable or impressive.">🔥 <b>Wild art</b><small>Just create</small></button>
+    </div>
+    <div class="artPrompt" id="artPrompt">Pick a lane when you want to create.</div>
+  </section>
+</section>
+
+<section class="panel" id="needs">
     <div class="sectionHead"><div><h2>Send a clear request</h2><p>Tap once. The card changes color so you KNOW it sent.</p></div></div>
     <div class="needsGrid" id="needsGrid"></div><div class="status" id="needStatus">Choose what you need. Your partner will see it in Us.</div>
   </section>
@@ -824,6 +1054,16 @@ body{
       <button data-goto="history"><span>↻</span><b>History</b><small>What you pulled before.</small></button>
       <button data-goto="settings"><span>⚙</span><b>Settings</b><small>Account, sound, vibration, and sync.</small></button>
     </div>
+    <section class="securityCard">
+      <div class="securityHead"><div><div class="eyebrow">SECURITY</div><h3>Protect RESET</h3></div><span>🔐</span></div>
+      <p>Client-side app code can never be made impossible to copy, but you can lock down access and make the real data much harder to misuse.</p>
+      <div class="securityRows">
+        <div><b>App lock</b><small>Optional PIN lock on this device.</small><button id="setPin">Set / change PIN</button></div>
+        <div><b>Notifications</b><small id="notifStatus">Check notification permission.</small><button id="enableNotif">Enable / test</button></div>
+        <div><b>Private data</b><small>Life trackers stay on this device by default.</small><span class="securePill">LOCAL</span></div>
+      </div>
+    </section>
+
   </section>
 
   <section class="panel" id="settings">
@@ -1058,6 +1298,138 @@ switchTab = function(id){
   window.scrollTo({top:0,behavior:"smooth"});
 };
 
+
+
+// =========================================================
+// V12 LIFE HUB + SECURITY + TONE STUDIO
+// =========================================================
+const lifeStore=(k)=>JSON.parse(localStorage.getItem(k)||"[]");
+const lifeSave=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const money=(n)=>"$"+Number(n||0).toLocaleString(undefined,{maximumFractionDigits:2});
+const esc=(s)=>escapeHtml(String(s??""));
+const todayISO=()=>new Date().toISOString().slice(0,10);
+
+["gymDate","healthDate"].forEach(id=>{if($(id))$(id).value=todayISO()});
+
+function openLifeView(name){
+  document.querySelectorAll(".lifeView").forEach(v=>v.classList.toggle("open",v.id==="life-"+name));
+  haptic(14);
+}
+document.querySelectorAll("[data-lifeview]").forEach(b=>b.onclick=()=>openLifeView(b.dataset.lifeview));
+document.querySelectorAll("[data-close-life]").forEach(b=>b.onclick=()=>b.closest(".lifeView").classList.remove("open"));
+
+function renderGym(){
+  const a=lifeStore("resetGym");
+  $("gymCount").textContent=a.length;
+  $("gymMinutes").textContent=a.reduce((s,x)=>s+Number(x.minutes||0),0);
+  $("gymList").innerHTML=a.slice().reverse().map((x,i)=>`<div class="lifeEntry"><div><b>${esc(x.person)} · ${esc(x.workout||"Workout")}</b><small>${esc(x.date)} · ${esc(x.minutes)} min</small></div><button data-delgym="${a.length-1-i}">×</button></div>`).join("")||'<div class="empty">No workouts yet.</div>';
+  document.querySelectorAll("[data-delgym]").forEach(b=>b.onclick=()=>{let d=lifeStore("resetGym");d.splice(+b.dataset.delgym,1);lifeSave("resetGym",d);renderGym()})
+}
+$("saveGym").onclick=()=>{
+  let mins=Number($("gymMinutesInput").value||0); if(!mins){toast("Add workout minutes");return}
+  let a=lifeStore("resetGym");a.push({date:$("gymDate").value||todayISO(),person:$("gymPerson").value,minutes:mins,workout:$("gymWorkout").value.trim()||"Workout"});lifeSave("resetGym",a);
+  $("gymMinutesInput").value="";$("gymWorkout").value="";renderGym();haptic(22);sound("send");toast("Workout saved ✓")
+};
+
+function renderFert(){
+  const a=lifeStore("resetFertility");
+  $("fertList").innerHTML=a.slice().reverse().map((x,i)=>`<div class="lifeEntry"><div><b>${esc(x.title||"Appointment")}</b><small>${esc(x.when?new Date(x.when).toLocaleString():"No time")} ${x.place?"· "+esc(x.place):""}${x.note?" · "+esc(x.note):""}</small></div><button data-delfert="${a.length-1-i}">×</button></div>`).join("")||'<div class="empty">No IUI/fertility appointments saved yet.</div>';
+  document.querySelectorAll("[data-delfert]").forEach(b=>b.onclick=()=>{let d=lifeStore("resetFertility");d.splice(+b.dataset.delfert,1);lifeSave("resetFertility",d);renderFert()})
+}
+$("saveFert").onclick=()=>{
+  if(!$("fertDate").value||!$("fertTitle").value.trim()){toast("Add a date and appointment name");return}
+  let a=lifeStore("resetFertility");a.push({when:$("fertDate").value,title:$("fertTitle").value.trim(),place:$("fertPlace").value.trim(),note:$("fertNote").value.trim()});lifeSave("resetFertility",a);
+  ["fertTitle","fertPlace","fertNote"].forEach(id=>$(id).value="");$("fertDate").value="";renderFert();haptic(22);sound("send");toast("Appointment saved privately ✓")
+};
+
+function renderHealth(){
+  const a=lifeStore("resetHealth");
+  $("healthList").innerHTML=a.slice().reverse().map((x,i)=>`<div class="lifeEntry"><div><b>${esc(x.person)} · ${esc(x.energy||"Check-in")}</b><small>${esc(x.date)}${x.sleep?" · "+esc(x.sleep)+"h sleep":""}${x.water?" · "+esc(x.water)+" cups":""}${x.note?" · "+esc(x.note):""}</small></div><button data-delhealth="${a.length-1-i}">×</button></div>`).join("")||'<div class="empty">No health check-ins yet.</div>';
+  document.querySelectorAll("[data-delhealth]").forEach(b=>b.onclick=()=>{let d=lifeStore("resetHealth");d.splice(+b.dataset.delhealth,1);lifeSave("resetHealth",d);renderHealth()})
+}
+$("saveHealth").onclick=()=>{
+  let a=lifeStore("resetHealth");a.push({date:$("healthDate").value||todayISO(),person:$("healthPerson").value,energy:$("healthEnergy").value,sleep:$("healthSleep").value,water:$("healthWater").value,note:$("healthNote").value.trim()});lifeSave("resetHealth",a);
+  ["healthSleep","healthWater","healthNote"].forEach(id=>$(id).value="");$("healthEnergy").value="";renderHealth();haptic(20);toast("Private check-in saved ✓")
+};
+
+function renderMoney(){
+  const inc=lifeStore("resetIncome"), bills=lifeStore("resetBills");
+  const totalIncome=inc.reduce((s,x)=>s+Number(x.amount||0),0);
+  const totalBills=bills.reduce((s,x)=>s+Number(x.amount||0),0);
+  const fund=JSON.parse(localStorage.getItem("resetFund")||'{"goal":0,"saved":0}');
+  $("moneyIncome").textContent=money(totalIncome);$("moneyBills").textContent=money(totalBills);$("moneyLeft").textContent=money(totalIncome-totalBills);$("moneyFund").textContent=money(fund.saved);
+  const pct=fund.goal?Math.min(100,Math.round(fund.saved/fund.goal*100)):0;$("fundBarFill").style.width=pct+"%";$("fundProgress").textContent=fund.goal?`${money(fund.saved)} of ${money(fund.goal)} · ${pct}%`:"No transition-fund goal yet.";
+  const rows=[
+    ...bills.map((x,i)=>({kind:"bill",idx:i,title:x.name,sub:`${money(x.amount)} · ${x.who}${x.due?" · due "+x.due:""}`})),
+    ...inc.map((x,i)=>({kind:"income",idx:i,title:"Income · "+x.who,sub:money(x.amount)}))
+  ];
+  $("moneyList").innerHTML=rows.map(x=>`<div class="lifeEntry"><div><b>${esc(x.title)}</b><small>${esc(x.sub)}</small></div><button data-moneykind="${x.kind}" data-moneyidx="${x.idx}">×</button></div>`).join("")||'<div class="empty">Add income and bills to see the real picture.</div>';
+  document.querySelectorAll("[data-moneykind]").forEach(b=>b.onclick=()=>{const key=b.dataset.moneykind==="bill"?"resetBills":"resetIncome";let a=lifeStore(key);a.splice(+b.dataset.moneyidx,1);lifeSave(key,a);renderMoney()});
+}
+$("saveIncome").onclick=()=>{let amt=Number($("incomeAmount").value||0);if(!amt){toast("Add an income amount");return}let a=lifeStore("resetIncome");a.push({who:$("incomePerson").value,amount:amt});lifeSave("resetIncome",a);$("incomeAmount").value="";renderMoney();toast("Income added ✓")};
+$("saveBill").onclick=()=>{let amt=Number($("billAmount").value||0),name=$("billName").value.trim();if(!name||!amt){toast("Add the bill name and amount");return}let a=lifeStore("resetBills");a.push({name,amount:amt,due:$("billDue").value,who:$("billWho").value});lifeSave("resetBills",a);["billName","billAmount","billDue"].forEach(id=>$(id).value="");renderMoney();toast("Bill added ✓")};
+$("saveFund").onclick=()=>{let f=JSON.parse(localStorage.getItem("resetFund")||'{"goal":0,"saved":0}');if($("fundGoal").value)f.goal=Number($("fundGoal").value);if($("fundAdd").value)f.saved+=Number($("fundAdd").value);localStorage.setItem("resetFund",JSON.stringify(f));$("fundGoal").value="";$("fundAdd").value="";renderMoney();toast("Transition fund updated ✓")};
+
+function updateLifeSnapshot(){
+  const fert=lifeStore("resetFertility").filter(x=>x.when).sort((a,b)=>new Date(a.when)-new Date(b.when));
+  const upcoming=fert.find(x=>new Date(x.when)>=new Date());
+  const bills=lifeStore("resetBills").filter(x=>x.due).sort((a,b)=>a.due.localeCompare(b.due));
+  let t="Nothing urgent yet. Add what matters.";
+  if(upcoming)t=`Next appointment: ${upcoming.title} · ${new Date(upcoming.when).toLocaleDateString()}`;
+  else if(bills.length)t=`Next bill: ${bills[0].name} · ${money(bills[0].amount)}`;
+  $("lifeSnapshot").textContent=t;
+}
+
+document.querySelectorAll("[data-art]").forEach(b=>b.onclick=()=>{$("artPrompt").textContent=b.dataset.art;haptic(18);sound("card")});
+
+// Device PIN lock. This is convenience privacy, not equivalent to OS encryption.
+async function pinHash(v){
+  const bytes=new TextEncoder().encode(v);
+  const hash=await crypto.subtle.digest("SHA-256",bytes);
+  return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+$("setPin").onclick=async()=>{
+  const pin=prompt("Choose a 4–8 digit RESET PIN. Leave blank to remove the device lock.");
+  if(pin===null)return;
+  if(pin===""){localStorage.removeItem("resetPinHash");toast("App lock removed");return}
+  if(!/^\d{4,8}$/.test(pin)){toast("Use 4–8 digits");return}
+  localStorage.setItem("resetPinHash",await pinHash(pin));toast("Device PIN set ✓")
+};
+$("unlockBtn").onclick=async()=>{
+  const saved=localStorage.getItem("resetPinHash");if(!saved){$("appLock").classList.remove("show");return}
+  const typed=$("unlockPin").value;
+  if(await pinHash(typed)===saved){$("appLock").classList.remove("show");$("unlockPin").value="";sessionStorage.setItem("resetUnlocked","1");haptic(24)}
+  else{toast("That PIN does not match");$("unlockPin").value=""}
+};
+if(localStorage.getItem("resetPinHash")&&sessionStorage.getItem("resetUnlocked")!=="1")$("appLock").classList.add("show");
+
+// Browser notification permission + test. True scheduled/background push still needs FCM/backend configuration.
+function updateNotifStatus(){
+  $("notifStatus").textContent=("Notification"in window)?`Permission: ${Notification.permission}`:"Notifications not supported in this browser.";
+}
+$("enableNotif").onclick=async()=>{
+  if(!("Notification"in window)){toast("This browser does not support notifications");return}
+  const p=await Notification.requestPermission();updateNotifStatus();
+  if(p==="granted"){
+    try{new Notification("RESET ✓",{body:"Notifications are allowed on this phone."})}catch(e){}
+    toast("Notification permission granted ✓")
+  } else toast("Notification permission was not granted");
+};
+updateNotifStatus();
+
+renderGym();renderFert();renderHealth();renderMoney();updateLifeSnapshot();
+
 </script>
+
+<div class="appLock" id="appLock">
+  <div class="lockCard">
+    <div class="lockLogo">R</div>
+    <h2>RESET is locked</h2>
+    <p>Enter your PIN to continue.</p>
+    <input id="unlockPin" type="password" inputmode="numeric" maxlength="8" placeholder="PIN">
+    <button id="unlockBtn">Unlock</button>
+    <small>Device lock only. Your Firebase account password is separate.</small>
+  </div>
+</div>
 </body>
 </html>
