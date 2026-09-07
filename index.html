@@ -787,6 +787,260 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
 .pushPrefs input{width:20px;height:20px;accent-color:#e0a7b9}
 .pushReady{color:#b9d9c0!important}.pushWarn{color:#e4c985!important}
 
+
+
+/* =========================================================
+   V14 — CLEANUP + TONE STUDIO STRONGER
+   ========================================================= */
+
+/* cleaner layout */
+.app{padding-bottom:132px}
+.panel{padding-bottom:24px}
+.lifeView{scroll-margin-bottom:120px}
+.lifeView.open{margin-bottom:12px}
+.actions{bottom:92px}
+.primaryNav{
+  bottom:8px!important;
+  width:min(calc(100% - 14px),720px)!important;
+}
+@media(max-width:430px){
+  .app{padding-bottom:140px}
+  .lifeView{padding-bottom:24px}
+}
+
+/* more polished "More" and security cards */
+.moreGrid button,.securityCard,.pushPrefs{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 14px 32px rgba(0,0,0,.10)
+}
+.securityRows>div{min-height:68px}
+
+/* Tone profile gets a distinct art-forward identity */
+body[data-profile="Tone"] .primaryNav button.active{
+  background:linear-gradient(145deg,#f1d470,#b89cff)!important;
+  color:#181310!important;
+}
+body[data-profile="Tone"] .lifeHero{
+  background:
+    linear-gradient(115deg,rgba(236,196,74,.08),transparent 40%),
+    linear-gradient(145deg,#24262f,#151820);
+}
+
+/* Tone Studio */
+.toneStudio{
+  display:none;
+  margin-top:18px;
+  padding:0;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.13);
+  overflow:hidden;
+  background:
+    repeating-linear-gradient(-14deg,rgba(255,255,255,.018) 0 2px,transparent 2px 12px),
+    #11151b;
+  box-shadow:0 24px 60px rgba(0,0,0,.24);
+}
+body[data-profile="Tone"] .toneStudio{display:block}
+
+.studioHero{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px;
+  background:
+    radial-gradient(circle at 82% 22%,rgba(164,124,255,.24),transparent 25%),
+    radial-gradient(circle at 18% 110%,rgba(236,196,74,.16),transparent 30%),
+    linear-gradient(145deg,#242125,#161920 72%);
+}
+.studioHero h3{
+  margin:4px 0 6px;
+  font-size:29px;
+  letter-spacing:-.035em;
+}
+.studioHero p{
+  margin:0;
+  color:#c5c8ce;
+  line-height:1.42;
+}
+.studioBadge{
+  flex:0 0 76px;
+  min-height:76px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:10px;
+  border-radius:20px 8px 20px 8px;
+  font-size:12px;
+  line-height:1.1;
+  font-weight:1000;
+  letter-spacing:.10em;
+  color:#14110c;
+  background:
+    linear-gradient(145deg,#f0d266,#bc9cff);
+  transform:rotate(-5deg);
+  box-shadow:8px 10px 0 rgba(255,255,255,.025);
+}
+
+.studioPromptCard{
+  margin:14px;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-end;
+  border-radius:20px;
+  background:#1b2028;
+  border:1px solid rgba(255,255,255,.08);
+}
+.studioPromptCard small{
+  color:#d5b85f;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.13em;
+}
+.studioPromptCard h4{
+  margin:5px 0 3px;
+  font-size:19px;
+}
+.studioPromptCard p{
+  margin:0;
+  color:#b9c0ca;
+  line-height:1.4;
+}
+.studioPromptCard button{
+  flex:0 0 auto;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;
+  background:#272d37;
+  color:white;
+  font-weight:850;
+}
+
+.studioGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:0 14px;
+}
+.studioGrid button{
+  min-height:122px;
+  padding:14px;
+  text-align:left;
+  border-radius:20px;
+  color:white;
+  border:1px solid rgba(255,255,255,.09);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015)),
+    #1c222a;
+}
+.studioGrid button:active{transform:scale(.98)}
+.studioGrid span{display:block;font-size:28px;margin-bottom:12px}
+.studioGrid b{display:block;font-size:16px}
+.studioGrid small{display:block;margin-top:3px;color:#9ca5b1;line-height:1.35}
+
+.studioSubhead{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:10px;
+  padding:20px 15px 8px;
+}
+.studioSubhead b{display:block;font-size:18px}
+.studioSubhead small{display:block;margin-top:3px;color:#9fa8b5}
+
+.studioComposer{
+  display:grid;
+  gap:8px;
+  padding:0 14px;
+}
+.studioComposer input,
+.studioComposer textarea,
+.studioComposer select{
+  width:100%;
+  min-width:0;
+  padding:12px 13px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.09);
+  background:#1d232c;
+  color:white;
+  font:inherit;
+}
+.studioComposer textarea{
+  min-height:88px;
+  resize:vertical;
+}
+.studioComposer button{
+  padding:12px;
+  border-radius:14px;
+  border:0;
+  background:linear-gradient(145deg,#f0d267,#b99cff);
+  color:#16120d;
+  font-weight:950;
+}
+
+.studioList{
+  display:grid;
+  gap:7px;
+  padding:10px 14px 0;
+}
+.studioItem{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  padding:12px;
+  border-radius:16px;
+  background:#1b2028;
+  border:1px solid rgba(255,255,255,.07);
+}
+.studioItem b{display:block}
+.studioItem small{
+  display:block;
+  margin-top:3px;
+  color:#9fa8b5;
+  line-height:1.35;
+}
+.studioItem .status{
+  display:inline-block;
+  margin-top:7px;
+  padding:4px 7px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+  background:rgba(236,196,74,.09);
+  color:#dfc46c;
+}
+.studioItem button{
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#252b34;
+  color:#cdb8ff;
+  font-size:18px;
+}
+
+.studioNote{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  margin:14px;
+  padding:13px;
+  border-radius:16px;
+  background:rgba(185,156,255,.06);
+  border:1px solid rgba(185,156,255,.10);
+  color:#c7c0da;
+}
+.studioNote p{margin:0;font-size:12px;line-height:1.42}
+
+@media(max-width:430px){
+  .studioHero{padding:19px}
+  .studioHero h3{font-size:26px}
+  .studioBadge{flex-basis:64px;min-height:64px;font-size:10px}
+  .studioPromptCard{align-items:flex-start;flex-direction:column}
+  .studioPromptCard button{width:100%}
+}
+
 </style>
 </head>
 <!-- RESET V10 Soft Luxe Polish -->
@@ -806,7 +1060,7 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
   </nav>
 
   <section class="panel active" id="today">
-    <div class="versionRibbon">RESET V13 · PUSH READY</div>
+    <div class="versionRibbon">RESET V14 · CLEAN + STUDIO</div>
 
     <section class="welcomeCard">
       <div class="welcomeTop">
@@ -873,8 +1127,8 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
   <div class="sectionHead simpleHead">
     <div>
       <div class="eyebrow">LIFE DASHBOARD</div>
-      <h2>Keep life from living in your head.</h2>
-      <p>Gym, IUI logistics, private health check-ins, bills, and transition money in one place.</p>
+      <h2>Keep life organized without carrying it all in your head.</h2>
+      <p>Gym, IUI logistics, private health check-ins, bills, and transition planning — all in one place.</p>
     </div>
   </div>
 
@@ -974,18 +1228,81 @@ body[data-profile="Tone"] .resetMark{background:linear-gradient(145deg,#f0d273,#
     <div class="lifeList" id="moneyList"></div>
   </section>
 
+  
   <section class="toneStudio" id="toneStudio">
-    <div class="studioHead">
-      <div><div class="eyebrow">TONE'S SIDE</div><h3>🎨 Studio Mode</h3><p>Painting, graffiti, tattoo ideas, and making something instead of just scrolling.</p></div>
-      <span class="spray">TA</span>
+    <div class="studioHero">
+      <div class="studioHeroText">
+        <div class="eyebrow">TONE'S SPACE</div>
+        <h3>🎨 Studio Mode</h3>
+        <p>Paint. Sketch. Tag. Design. Build something that looks like you.</p>
+      </div>
+      <div class="studioBadge">TONE<br>STUDIO</div>
     </div>
+
+    <div class="studioPromptCard">
+      <div>
+        <small>TONIGHT'S CREATIVE REP</small>
+        <h4 id="artPromptTitle">Pick a lane</h4>
+        <p id="artPrompt">Choose a challenge when you want to create.</p>
+      </div>
+      <button id="randomArtPrompt">↻ New prompt</button>
+    </div>
+
     <div class="studioGrid">
-      <button data-art="Paint something with only 3 colors. No overthinking.">🖌️ <b>Paint</b><small>3-color challenge</small></button>
-      <button data-art="Sketch one graffiti word or tag concept and try 3 letter styles.">🧱 <b>Graffiti</b><small>Letter-style rep</small></button>
-      <button data-art="Draw one tattoo concept you would actually be proud to put in a portfolio.">🖋️ <b>Tattoo sketch</b><small>Portfolio idea</small></button>
-      <button data-art="Make something weird for 20 minutes. It does not have to be sellable or impressive.">🔥 <b>Wild art</b><small>Just create</small></button>
+      <button data-artlane="paint">
+        <span>🖌️</span><b>Paint</b><small>Color, texture, canvas</small>
+      </button>
+      <button data-artlane="graffiti">
+        <span>🧱</span><b>Graffiti</b><small>Tags + letter styles</small>
+      </button>
+      <button data-artlane="tattoo">
+        <span>🖋️</span><b>Tattoo ideas</b><small>Flash + concepts</small>
+      </button>
+      <button data-artlane="wild">
+        <span>🔥</span><b>Wild card</b><small>Make something weird</small>
+      </button>
     </div>
-    <div class="artPrompt" id="artPrompt">Pick a lane when you want to create.</div>
+
+    <div class="studioSubhead">
+      <div><b>Idea Vault</b><small>Save the thought before it disappears.</small></div>
+    </div>
+    <div class="studioComposer">
+      <input id="artIdeaTitle" placeholder="Idea title">
+      <textarea id="artIdeaNote" placeholder="What are you picturing? Colors, style, placement, mood..."></textarea>
+      <select id="artIdeaType">
+        <option value="painting">Painting</option>
+        <option value="graffiti">Graffiti</option>
+        <option value="tattoo">Tattoo</option>
+        <option value="other">Other</option>
+      </select>
+      <button id="saveArtIdea">Save idea +</button>
+    </div>
+    <div class="studioList" id="artIdeaList"></div>
+
+    <div class="studioSubhead">
+      <div><b>Projects</b><small>Move work from idea → working → finished.</small></div>
+    </div>
+    <div class="studioComposer">
+      <input id="artProjectName" placeholder="Project name">
+      <select id="artProjectType">
+        <option>Painting</option>
+        <option>Graffiti</option>
+        <option>Tattoo design</option>
+        <option>Other</option>
+      </select>
+      <select id="artProjectStatus">
+        <option>Idea</option>
+        <option>Working</option>
+        <option>Finished</option>
+      </select>
+      <button id="saveArtProject">Add project +</button>
+    </div>
+    <div class="studioList" id="artProjectList"></div>
+
+    <div class="studioNote">
+      <span>✦</span>
+      <p>This space is private on Tone's device by default. Finished work can be added to Memories later if he wants to share it.</p>
+    </div>
   </section>
 </section>
 
@@ -1498,6 +1815,75 @@ prefIds.forEach(id=>$(id)?.addEventListener("change",savePushPrefs));
 updateNotifStatus();renderPushStatus();loadPushPrefs();
 
 renderGym();renderFert();renderHealth();renderMoney();updateLifeSnapshot();
+
+
+
+// =========================================================
+// V14 — TONE STUDIO
+// =========================================================
+const toneArtPrompts = {
+  paint:[
+    {title:"3-color canvas",text:"Use only three colors and make the contrast do the work."},
+    {title:"Texture first",text:"Start with texture or marks before deciding what the piece is."},
+    {title:"Paint the mood",text:"Pick one emotion and paint it without using words."}
+  ],
+  graffiti:[
+    {title:"Letter rep",text:"Choose one word or tag and try three completely different letter styles."},
+    {title:"Wall concept",text:"Sketch a full wall piece: name, background, fill, outline, accent."},
+    {title:"Black + one color",text:"Design a tag using black plus one accent color only."}
+  ],
+  tattoo:[
+    {title:"Flash sheet",text:"Draw three small tattoo concepts that belong on the same flash sheet."},
+    {title:"Placement matters",text:"Design one piece specifically for forearm, chest, calf, or shoulder placement."},
+    {title:"Clean lines",text:"Take one tattoo idea and simplify it until every line earns its place."}
+  ],
+  wild:[
+    {title:"Make something weird",text:"20 minutes. No client, no audience, no rules."},
+    {title:"Mash two styles",text:"Combine two things that normally would not belong together."},
+    {title:"Found-object sketch",text:"Pick something in the room and redesign it like it belongs in your own universe."}
+  ]
+};
+let currentArtLane="wild";
+function setArtPrompt(lane){
+  currentArtLane=lane||currentArtLane;
+  const arr=toneArtPrompts[currentArtLane]||toneArtPrompts.wild;
+  const item=arr[Math.floor(Math.random()*arr.length)];
+  if($("artPromptTitle"))$("artPromptTitle").textContent=item.title;
+  if($("artPrompt"))$("artPrompt").textContent=item.text;
+  haptic(14);
+}
+document.querySelectorAll("[data-artlane]").forEach(b=>b.onclick=()=>setArtPrompt(b.dataset.artlane));
+$("randomArtPrompt")?.addEventListener("click",()=>setArtPrompt(currentArtLane));
+
+function artIdeas(){return JSON.parse(localStorage.getItem("resetToneArtIdeas")||"[]")}
+function artProjects(){return JSON.parse(localStorage.getItem("resetToneArtProjects")||"[]")}
+function saveArtIdeas(v){localStorage.setItem("resetToneArtIdeas",JSON.stringify(v))}
+function saveArtProjects(v){localStorage.setItem("resetToneArtProjects",JSON.stringify(v))}
+function renderArtIdeas(){
+  if(!$("artIdeaList"))return;
+  const a=artIdeas();
+  $("artIdeaList").innerHTML=a.slice().reverse().map((x,i)=>`<div class="studioItem"><div><b>${escapeHtml(x.title)}</b><small>${escapeHtml(x.type)}${x.note?" · "+escapeHtml(x.note):""}</small></div><button data-delartidea="${a.length-1-i}">×</button></div>`).join("")||'<div class="empty">No saved ideas yet.</div>';
+  document.querySelectorAll("[data-delartidea]").forEach(b=>b.onclick=()=>{let x=artIdeas();x.splice(+b.dataset.delartidea,1);saveArtIdeas(x);renderArtIdeas()})
+}
+function renderArtProjects(){
+  if(!$("artProjectList"))return;
+  const a=artProjects();
+  $("artProjectList").innerHTML=a.slice().reverse().map((x,i)=>`<div class="studioItem"><div><b>${escapeHtml(x.name)}</b><small>${escapeHtml(x.type)}</small><span class="status">${escapeHtml(x.status)}</span></div><button data-delartproject="${a.length-1-i}">×</button></div>`).join("")||'<div class="empty">No projects yet.</div>';
+  document.querySelectorAll("[data-delartproject]").forEach(b=>b.onclick=()=>{let x=artProjects();x.splice(+b.dataset.delartproject,1);saveArtProjects(x);renderArtProjects()})
+}
+$("saveArtIdea")?.addEventListener("click",()=>{
+  const title=$("artIdeaTitle").value.trim(),note=$("artIdeaNote").value.trim(),type=$("artIdeaType").value;
+  if(!title){toast("Give the idea a title");return}
+  const a=artIdeas();a.push({title,note,type,at:new Date().toISOString()});saveArtIdeas(a);
+  $("artIdeaTitle").value="";$("artIdeaNote").value="";renderArtIdeas();sound("send");haptic(20);toast("Idea saved ✓")
+});
+$("saveArtProject")?.addEventListener("click",()=>{
+  const name=$("artProjectName").value.trim(),type=$("artProjectType").value,status=$("artProjectStatus").value;
+  if(!name){toast("Name the project first");return}
+  const a=artProjects();a.push({name,type,status,at:new Date().toISOString()});saveArtProjects(a);
+  $("artProjectName").value="";renderArtProjects();sound("send");haptic(20);toast("Project added ✓")
+});
+renderArtIdeas();renderArtProjects();
 
 </script>
 
