@@ -45,6 +45,19 @@ button.tapFlash{transform:scale(.965)!important;box-shadow:0 0 0 2px color-mix(i
 .memoryHero{border:1px solid var(--line);background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 12%,#171b22),#171b22);border-radius:26px;padding:18px;margin-bottom:12px;overflow:hidden;position:relative}.memoryHero:after{content:"♡";position:absolute;right:18px;top:4px;font-size:74px;color:var(--accent);opacity:.08}.memoryQuote{font-size:21px;line-height:1.25;font-weight:900;max-width:620px}.memoryMeta{margin-top:8px;color:var(--muted);font-size:12px}.memoryWall{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.memoryCard{border:1px solid var(--line);background:var(--panel);border-radius:22px;overflow:hidden}.memoryCard img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#11151a}.memoryBody{padding:14px}.memoryBody b{display:block;margin-bottom:5px}.memoryBody p{margin:0;color:var(--muted);font-size:13px;line-height:1.4}.memoryBody small{display:block;margin-top:8px;color:var(--muted)}.dateBox{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border-radius:24px;padding:18px;margin-top:12px}.dateIdea{font-size:22px;font-weight:950;line-height:1.2;margin:10px 0}.dateMeta{color:var(--muted);font-size:13px}.quickChips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.quickChips button{border:1px solid var(--line);border-radius:999px;background:#252c35;color:#fff;padding:9px 11px;font-weight:850}.uploadPreview{width:100%;max-height:260px;object-fit:cover;border-radius:18px;margin-top:10px;display:none}.songShelf{display:grid;gap:9px;margin-top:12px}.songRow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:var(--panel);padding:12px 13px;border-radius:16px}.songRow .songInfo{min-width:0}.songRow b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.songRow small{color:var(--muted)}.songRow a{text-decoration:none;border:1px solid var(--line);background:#252c35;color:#fff;border-radius:11px;padding:8px 10px;font-weight:850}.emptyPretty{border:1px dashed var(--line);border-radius:20px;padding:20px;text-align:center;color:var(--muted)}
 @keyframes pop{0%{opacity:0;transform:translateY(28px) rotateX(7deg) scale(.94)}70%{transform:translateY(-3px) scale(1.015)}100%{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.wrap.pop{animation:none}}@media(max-width:520px){.setupGrid,.grid,.needsGrid,.mediaGrid,.formRow,.memoryWall{grid-template-columns:1fr}.hero h1{font-size:27px}.card{min-height:285px;padding:22px}.card h2{font-size:27px}.tile{min-height:112px}.tabs{margin-left:-2px;margin-right:-2px}}
 
+
+/* V9 — music service picker */
+.streamPicker{margin:2px 0 16px;padding:14px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.035)}
+.streamPickerTop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.streamPickerTop b{font-size:15px}.streamPickerTop span{font-size:12px;color:var(--muted)}
+.streamServices{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:2px;scrollbar-width:none}
+.streamServices::-webkit-scrollbar{display:none}
+.streamServices button{white-space:nowrap;scroll-snap-align:start;min-height:44px}
+.streamServices button.on{background:var(--accent);color:var(--accentText);border-color:transparent}
+.mediaButtons{flex-wrap:wrap}
+.mediaButtons .serviceBtn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.mediaServiceHint{margin-top:8px;font-size:12px;color:var(--muted)}
+
 /* V8 — Vibe Room + gallery polish */
 .vibeHero{padding:22px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 85% 15%,rgba(221,158,181,.20),transparent 30%),linear-gradient(145deg,rgba(43,36,45,.95),rgba(19,23,29,.96));margin-bottom:16px}.vibeHero h3{font-size:25px;margin:5px 0}.vibeModes{display:flex;gap:8px;overflow:auto;padding:4px 0 12px;scrollbar-width:none}.vibeModes button{white-space:nowrap}.vibeModes button.on{background:var(--accent);color:var(--accentText);border-color:transparent}.mediaCard{transition:transform .18s ease,border-color .18s ease}.mediaCard:active{transform:scale(.975)}
 .memoryCard{cursor:pointer;transition:transform .18s ease,border-color .18s ease}.memoryCard:active{transform:scale(.98)}.memoryCard img{aspect-ratio:4/3;object-fit:cover;width:100%}.memoryModal{position:fixed;inset:0;z-index:50;background:rgba(4,6,10,.88);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:22px}.memoryModal.show{display:flex}.memoryModalBox{width:min(620px,100%);max-height:88vh;overflow:auto;background:#171b22;border:1px solid var(--line);border-radius:28px;padding:16px;box-shadow:0 24px 80px rgba(0,0,0,.55)}.memoryModalBox img{width:100%;max-height:55vh;object-fit:contain;border-radius:20px;background:#0b0d12}.memoryModalBox h3{font-size:26px;margin:14px 4px 6px}.memoryModalBox p,.memoryModalBox small{margin:4px;color:var(--muted)}
@@ -98,8 +111,16 @@ button.tapFlash{transform:scale(.965)!important;box-shadow:0 0 0 2px color-mix(i
     <div class="sectionHead"><div><h2>Vibe Room</h2><p>Pick the energy first. RESET will keep the choices simple.</p></div></div>
     <div class="vibeHero"><div class="eyebrow">RIGHT NOW</div><h3 id="vibeHeadline">What kind of energy do you need?</h3><p id="vibeCopy">Choose a lane — calm down, get up, feel cute, laugh, or reconnect.</p></div>
     <div class="vibeModes" id="vibeModes"><button data-vibemode="all" class="on">✨ All</button><button data-vibemode="calm">🌙 Calm me down</button><button data-vibemode="up">🔥 Get me up</button><button data-vibemode="main">💅 Main character</button><button data-vibemode="laugh">😂 Make me laugh</button><button data-vibemode="us">❤️ Us</button></div>
+    <div class="streamPicker">
+      <div class="streamPickerTop"><b>🎧 Open music with</b><span id="streamServiceLabel">YouTube</span></div>
+      <div class="streamServices">
+        <button data-stream="youtube" class="on">▶️ YouTube</button>
+        <button data-stream="spotify">🟢 Spotify</button>
+        <button data-stream="pandora">🔵 Pandora</button>
+      </div>
+    </div>
     <div class="mediaGrid" id="mediaGrid"></div>
-    <div class="addMedia"><h3>➕ Add your own</h3><div class="formRow"><select id="mediaType"><option value="song">Song</option><option value="video">Video</option></select><input id="mediaTitle" placeholder="Title"></div><input id="mediaUrl" placeholder="Paste YouTube, Spotify, TikTok, etc. link" style="margin-top:8px"><button id="saveMedia">Save to this phone</button><div class="tiny">RESET opens media from the original service; it does not copy or host copyrighted songs/videos.</div></div>
+    <div class="addMedia"><h3>➕ Add your own</h3><div class="formRow"><select id="mediaType"><option value="song">Song</option><option value="video">Video</option></select><input id="mediaTitle" placeholder="Title"></div><input id="mediaUrl" placeholder="Paste YouTube, Spotify, Pandora, TikTok, etc. link" style="margin-top:8px"><button id="saveMedia">Save to this phone</button><div class="tiny">RESET opens media from the original service; it does not copy or host copyrighted songs/videos.</div></div>
   </section>
 
 
@@ -109,11 +130,11 @@ button.tapFlash{transform:scale(.965)!important;box-shadow:0 0 0 2px color-mix(i
 
     <div class="dateBox"><div class="eyebrow">DATE NIGHT GENERATOR</div><div class="dateIdea" id="dateIdea">Tap generate when y’all need something to do besides stare at each other and say “I don’t know.” 😂</div><div class="dateMeta" id="dateMeta">Choose a vibe or let RESET decide.</div><div class="quickChips"><button data-datevibe="cheap">$ Cheap</button><button data-datevibe="home">🏠 Home</button><button data-datevibe="outside">🌿 Outside</button><button data-datevibe="romantic">❤️ Romantic</button><button data-datevibe="funny">😂 Silly</button><button class="primary" id="randomDate">Surprise us</button></div><div class="actions"><button id="shareDate">Share this date to Us</button></div></div>
 
-    <div class="addMedia"><h3>📸 Add a memory</h3><div class="formRow"><input id="memoryTitle" placeholder="What do you call this memory?"><input id="memoryDate" type="date"></div><input id="memoryText" placeholder="A sentence about it" style="margin-top:8px"><input id="memoryPhoto" type="file" accept="image/*" style="margin-top:8px"><img id="memoryPreview" class="uploadPreview" alt="Memory preview"><div class="actions"><button class="primary" id="saveMemory">Save memory</button><button id="shareMemoryText">Save + share text to Us</button></div><div class="tiny">Photos are stored only on this phone in V8. Text memories can be shared through your existing Firebase room. Shared photo sync will be the next Firebase Storage upgrade.</div></div>
+    <div class="addMedia"><h3>📸 Add a memory</h3><div class="formRow"><input id="memoryTitle" placeholder="What do you call this memory?"><input id="memoryDate" type="date"></div><input id="memoryText" placeholder="A sentence about it" style="margin-top:8px"><input id="memoryPhoto" type="file" accept="image/*" style="margin-top:8px"><img id="memoryPreview" class="uploadPreview" alt="Memory preview"><div class="actions"><button class="primary" id="saveMemory">Save memory</button><button id="shareMemoryText">Save + share text to Us</button></div><div class="tiny">Photos are stored only on this phone in V9. Text memories can be shared through your existing Firebase room. Shared photo sync will be the next Firebase Storage upgrade.</div></div>
     <div class="sectionHead"><div><h2>Memory wall</h2><p>Tap a photo to bring the moment back up.</p></div></div><div class="memoryWall" id="memoryWall"></div>
 
     <div class="sectionHead"><div><h2>Our songs + video notes</h2><p>Links you actually care about, not an algorithm deciding the relationship soundtrack.</p></div></div>
-    <div class="addMedia"><div class="formRow"><select id="ourMediaType"><option value="song">Our song</option><option value="video">Video note / clip</option></select><input id="ourMediaTitle" placeholder="Title"></div><input id="ourMediaUrl" placeholder="Paste a YouTube, Spotify, TikTok, Drive, etc. link" style="margin-top:8px"><button id="saveOurMedia">Add to our shelf</button></div>
+    <div class="addMedia"><div class="formRow"><select id="ourMediaType"><option value="song">Our song</option><option value="video">Video note / clip</option></select><input id="ourMediaTitle" placeholder="Title"></div><input id="ourMediaUrl" placeholder="Paste a YouTube, Spotify, Pandora, TikTok, Drive, etc. link" style="margin-top:8px"><button id="saveOurMedia">Add to our shelf</button></div>
     <div class="songShelf" id="ourMediaShelf"></div>
   </section>
 
@@ -245,8 +266,41 @@ const starterMedia=[
  {vibe:"us",type:"video",icon:"📺",title:"Watch + Answer Together",text:"Pick a couples conversation video and answer along — no courtroom energy.",url:"https://www.youtube.com/results?search_query=The+Skin+Deep+THE+AND+couples"}
 ];
 let activeVibe="all";
+let streamService=localStorage.getItem("resetStreamService")||"youtube";
+const streamNames={youtube:"YouTube",spotify:"Spotify",pandora:"Pandora"};
+function musicSearchUrl(service,title,original){
+  const q=encodeURIComponent(title);
+  if(service==="spotify")return "https://open.spotify.com/search/"+q;
+  if(service==="pandora")return "https://www.pandora.com/search/"+q+"/all";
+  return original&&/youtube\.com|youtu\.be/i.test(original)?original:"https://www.youtube.com/results?search_query="+q;
+}
 function customMedia(){return list("resetCustomMedia")}
-function renderMedia(){let items=[...starterMedia,...customMedia().map(x=>({...x,vibe:x.vibe||"all"}))];let shown=activeVibe==="all"?items:items.filter(m=>m.vibe===activeVibe||m.vibe==="all");$("mediaGrid").innerHTML=shown.map((m,i)=>`<div class="mediaCard"><div class="mediaIcon">${escapeHtml(m.icon|| (m.type==="song"?"🎵":"📺"))}</div><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.text||"Saved by you.")}</p><div class="mediaButtons"><a class="accent" href="${escapeHtml(m.url)}" target="_blank" rel="noopener">${m.type==="song"?"Play / Search":"Watch"} ↗</a><button data-sharetitle="${escapeHtml(m.title)}">Send to Us</button></div></div>`).join("")||'<div class="emptyPretty">Nothing in this vibe yet. Add one below.</div>';document.querySelectorAll("[data-sharetitle]").forEach(b=>b.onclick=async()=>{let m=items.find(x=>x.title===b.dataset.sharetitle);if(!m)return;await sendShared({icon:m.type==="song"?"🎵":"📺",title:m.title,text:"Shared something for us to "+(m.type==="song"?"listen to":"watch")+".",url:m.url,from:profile,at:new Date().toISOString(),type:"media"});b.classList.add("sendBurst");setTimeout(()=>b.classList.remove("sendBurst"),600);sound("send")})}
+function syncStreamPicker(){
+  document.querySelectorAll("[data-stream]").forEach(b=>b.classList.toggle("on",b.dataset.stream===streamService));
+  if($("streamServiceLabel"))$("streamServiceLabel").textContent=streamNames[streamService]||"YouTube";
+}
+function renderMedia(){
+  let items=[...starterMedia,...customMedia().map(x=>({...x,vibe:x.vibe||"all"}))];
+  let shown=activeVibe==="all"?items:items.filter(m=>m.vibe===activeVibe||m.vibe==="all");
+  $("mediaGrid").innerHTML=shown.map((m,i)=>{
+    const playUrl=m.type==="song"?musicSearchUrl(streamService,m.title,m.url):m.url;
+    const playLabel=m.type==="song"?"Open in "+(streamNames[streamService]||"YouTube"):"Watch";
+    return `<div class="mediaCard"><div class="mediaIcon">${escapeHtml(m.icon|| (m.type==="song"?"🎵":"📺"))}</div><h3>${escapeHtml(m.title)}</h3><p>${escapeHtml(m.text||"Saved by you.")}</p><div class="mediaButtons"><a class="accent serviceBtn" href="${escapeHtml(playUrl)}" target="_blank" rel="noopener">${escapeHtml(playLabel)} ↗</a><button data-sharetitle="${escapeHtml(m.title)}">Send to Us</button></div>${m.type==="song"?`<div class="mediaServiceHint">Uses ${escapeHtml(streamNames[streamService]||"YouTube")} for this music search.</div>`:""}</div>`;
+  }).join("")||'<div class="emptyPretty">Nothing in this vibe yet. Add one below.</div>';
+  document.querySelectorAll("[data-sharetitle]").forEach(b=>b.onclick=async()=>{
+    let m=items.find(x=>x.title===b.dataset.sharetitle);if(!m)return;
+    let shareUrl=m.type==="song"?musicSearchUrl(streamService,m.title,m.url):m.url;
+    await sendShared({icon:m.type==="song"?"🎵":"📺",title:m.title,text:"Shared something for us to "+(m.type==="song"?"listen to":"watch")+".",url:shareUrl,from:profile,at:new Date().toISOString(),type:"media"});
+    b.classList.add("sendBurst");setTimeout(()=>b.classList.remove("sendBurst"),600);sound("send")
+  })
+}
+document.querySelectorAll("[data-stream]").forEach(b=>b.onclick=()=>{
+  streamService=b.dataset.stream;
+  localStorage.setItem("resetStreamService",streamService);
+  syncStreamPicker();haptic(18);sound("card");renderMedia();
+  toast("Music opens with "+streamNames[streamService]+" ✓");
+});
+syncStreamPicker();
 document.querySelectorAll("[data-vibemode]").forEach(b=>b.onclick=()=>{activeVibe=b.dataset.vibemode;document.querySelectorAll("[data-vibemode]").forEach(x=>x.classList.toggle("on",x===b));let copy={all:["What kind of energy do you need?","Choose a lane — calm down, get up, feel cute, laugh, or reconnect."],calm:["Turn the volume down.","Soft music and low-stimulation choices. Nothing to solve right now."],up:["We are getting UP.","One song. One small move. Momentum before motivation."],main:["Main character energy.","Do something that makes you feel like you — for you."],laugh:["Absolutely no deep talk.","Your assignment is to laugh at something ridiculous."],us:["A little softness for Us.","Connection without making it a relationship meeting."]}[activeVibe];$("vibeHeadline").textContent=copy[0];$("vibeCopy").textContent=copy[1];haptic(18);sound("card");renderMedia()});
 $("saveMedia").onclick=()=>{let type=$("mediaType").value,title=$("mediaTitle").value.trim(),url=$("mediaUrl").value.trim();if(!title||!/^https?:\/\//i.test(url)){toast("Add a title + full link");return}persistList("resetCustomMedia",{type,vibe:activeVibe==="all"?"all":activeVibe,icon:type==="song"?"🎵":"📺",title,url,text:"Saved by "+profile+"."},30);$("mediaTitle").value="";$("mediaUrl").value="";renderMedia();toast("Saved to Vibe Room ✓")};
 
@@ -320,7 +374,7 @@ async function initCloud(){const placeholder=Object.values(firebaseConfig).some(
 async function startPairListener(){if(!cloud.ready||!pairCode)return;if(cloud.unsub)cloud.unsub();const {collection,query,orderBy,limit,onSnapshot}=cloud.mods;try{const q=query(collection(cloud.db,"pairs",pairCode,"feed"),orderBy("serverAt","desc"),limit(50));cloud.unsub=onSnapshot(q,snap=>{let previousIds=new Set(list("resetShared").map(x=>x._id).filter(Boolean)),items=[];snap.forEach(d=>items.push({...d.data(),_id:d.id}));localStorage.setItem("resetShared",JSON.stringify(items));if(!cloud.initialSnapshot){let newIncoming=items.find(x=>x.from!==profile&&x._id&&!previousIds.has(x._id));if(newIncoming){sound("receive");haptic([80,60,80]);toast(`${newIncoming.from} sent: ${newIncoming.title}`)}}cloud.initialSnapshot=false;renderShared()},e=>{console.error("Firestore listener failed",e);$("cloudStatus").textContent="Cloud listener failed: "+(e.code||e.message)})}catch(e){console.error("Listener setup failed",e)}}
 $("retryCloud").onclick=initCloud;
 
-showMoods();refreshWho();renderFavorites();renderHistory();renderShared();renderMedia();renderMemories();renderOurMedia();rotateMemorySpotlight();$("soundToggle").textContent=soundOn?"On":"Off";$("vibeToggle").textContent=vibeOn?"On":"Off";initCloud();
+showMoods();refreshWho();renderFavorites();renderHistory();renderShared();syncStreamPicker();renderMedia();renderMemories();renderOurMedia();rotateMemorySpotlight();$("soundToggle").textContent=soundOn?"On":"Off";$("vibeToggle").textContent=vibeOn?"On":"Off";initCloud();
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
 </script>
 </body>
